@@ -16,7 +16,8 @@ body{
 
 /* header */
 header{
-    margin: 5px 20px;
+    width: clamp(360px, 90vw, 1600px);
+    margin: 0 auto;
 }
 nav{
     display: flex;
@@ -31,7 +32,7 @@ header h1{
     font-style: normal;
     font-size: clamp(2.5rem, 5vw, 10rem);
     color: var(--main-green);
-    margin: 1rem 5vw;
+    margin: 1rem 1vw;
 }
 
 header a{
@@ -48,7 +49,7 @@ header a{
 }
 
 .github img{
-    width: 50px;
+    width: clamp(30px, 3vw, 60px);
     padding: 5px 5px;
 }
 
@@ -60,6 +61,11 @@ header a{
 }
 
 /* main */
+main{
+    width: clamp(300px, 90vw, 1600px);
+    margin: 0 auto;
+}
+
 main h2{
     font-family: var(--main-font);
     font-optical-sizing: auto;
@@ -77,8 +83,7 @@ main h2{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 100%;
-    max-width: 1200px;
+    width: clamp(350px, 80vw, 1600px);
     margin: 0 auto;
     gap: 20px;
 }
@@ -87,8 +92,7 @@ main h2{
     display: flex;
     flex-direction: column;
     padding: 10px;
-    width: 100%;
-    max-width: 1000px;
+    width: clamp(350px, 85vw, 1400px);
     min-height: 350px;
     height: auto;
     border-radius: 10px;
