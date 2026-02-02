@@ -16,18 +16,47 @@ body{
 
 /* header */
 header{
+    margin: 5px 20px;
+}
+nav{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-h1{
+header h1{
     font-family: var(--main-font);
     font-optical-sizing: auto;
     font-weight: bold;
     font-style: normal;
-    font-size: 5em;
+    font-size: clamp(2.5rem, 5vw, 10rem);
     color: var(--main-green);
-    margin: 10px;
+    margin: 1rem 5vw;
+}
+
+header a{
+    text-decoration: none;
+}
+
+.github{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    min-width: 100px;
+    border-radius: 20px;
+}
+
+.github img{
+    width: 50px;
+    padding: 5px 5px;
+}
+
+.github p{
+    letter-spacing: 2px;
+    color: black;
+    font-size: clamp(1rem, 2vw, 1.8rem);
+    padding: 5px 5px;
 }
 
 /* main */
@@ -36,7 +65,7 @@ main h2{
     font-optical-sizing: auto;
     font-weight: normal;
     font-style: italic;
-    font-size: 2em;
+    font-size: clamp(1.2rem, 2vw, 2rem);
     color: white;
     text-align: center;
     letter-spacing: 2px;
@@ -48,18 +77,28 @@ main h2{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     gap: 20px;
 }
 
 .terminal{
     display: flex;
     flex-direction: column;
+    padding: 10px;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 350px;
+    height: auto;
+    border-radius: 10px;
     background-color: #222533;
     color: #fbebe2;
-    padding: 10px;
-    min-width: 500px;
-    min-height: 350px;
-    border-radius: 10px;
+    box-shadow: 
+            0 0 10px rgba(255,255,255,0.3),
+            0 0 20px rgba(255,255,255,0.2),
+            0 0 40px rgba(255,255,255,0.1);
+    margin: 20px;
 }
 
 .mac{
@@ -88,6 +127,11 @@ main h2{
     background-color: #28c941;
 }
 
+code{
+    overflow-x: auto;
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+}
+
 pre[class*="language-"] {
     background: transparent !important;
 }
@@ -95,5 +139,6 @@ pre[class*="language-"] {
 code[class*="language-"] {
     background: transparent !important;
 }
+
 
 

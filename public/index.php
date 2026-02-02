@@ -11,7 +11,12 @@
     <header>
         <nav>
             <h1>Daily code</h1>
-            <a href=""></a>
+            <a href="https://github.com/rafssunny" rel="external" target="blank">
+                <div class="github">
+                    <img src="imgs/github.png" alt="GitHub Logo">
+                    <p>Github</p>
+                </div>
+            </a>
         </nav>
     </header>
     <main>
