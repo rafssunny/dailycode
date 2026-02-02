@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DailyCode</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
 </head>
 <body>
     <?php
-        $date = $_GET['dates'] ?? date('m/d/Y');
+        $today_date = date('m/d/Y');
+        $dates = [];
+        array_push($dates, $today_date);
+        
+        $input = $_GET['dates'];
     ?>
     <header>
         <nav>
@@ -22,8 +27,9 @@
             </a>
         </nav>
     </header>
+    
     <main>
-        <form action="" method="get">
+        <form action="" method="get" id="form">
             <h2>What will be the output?</h2>
             <div class="container-terminal">
                 <div class="terminal">
@@ -42,10 +48,14 @@
             </div>  
             <div class="container-output">
                 <select name="dates" id="dates">
-                    <option value="<?=$date?>"><?=$date?></option>
-                    <option value="teste">teste</option>
+                    <?php foreach($dates as $date):?>
+                    <?php
+                        $selected = (isset($_GET['dates']) && $_GET['dates'] == $date) ? 'selected' : '';    
+                    ?>
+                        <option value="<?= $date ?>" <?= $selected ?>><?= $date ?></option>
+                    <?php endforeach; ?>
                 </select>
-                <input type="text" name="output" id="output">
+                <input type="text" name="output" id="output" placeholder="output...">
                 <button type="submit" class="button">Ok</button>
             </div>
         </form>
@@ -58,9 +68,10 @@
     <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
     <script>
         const select = document.getElementById('dates')
+        const form = document.getElementById('form')
 
         select.addEventListener("change", function(){
-            window.location.href = "?dates="+select.value 
+            form.submit() 
         })
     </script>
 </body>
