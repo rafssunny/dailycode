@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-        $date = date('m/d/Y');
+        $date = $_GET['dates'] ?? date('m/d/Y');
     ?>
     <header>
         <nav>
@@ -43,6 +43,7 @@
             <div class="container-output">
                 <select name="dates" id="dates">
                     <option value="<?=$date?>"><?=$date?></option>
+                    <option value="teste">teste</option>
                 </select>
                 <input type="text" name="output" id="output">
                 <button type="submit" class="button">Ok</button>
@@ -50,10 +51,17 @@
         </form>
     </main>
     <footer>
-        <p>Every day a new coding challenge will be released for you to practice your skills. The programming languages used will vary."</p>
+        <p>Every day a new coding challenge will be released for you to practice your skills.</p>
     </footer>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+    <script>
+        const select = document.getElementById('dates')
+
+        select.addEventListener("change", function(){
+            window.location.href = "?dates="+select.value 
+        })
+    </script>
 </body>
 </html>
