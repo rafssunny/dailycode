@@ -44,14 +44,14 @@ main h2{
     padding: 10px;
 }
 
-div.container{
+.container{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-div.terminal{
+.terminal{
     display: flex;
     flex-direction: column;
     background-color: #222533;
@@ -61,3 +61,39 @@ div.terminal{
     min-height: 350px;
     border-radius: 10px;
 }
+
+.mac{
+    display: flex;
+    align-items: center;
+    cursor: text;
+    gap: 8px;
+}
+
+.mac span {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+.mac .red {
+    background-color: #ff5f57;
+}
+
+.mac .yellow {
+    background-color: #ffbd2e;
+}
+
+.mac .green {
+    background-color: #28c941;
+}
+
+pre[class*="language-"] {
+    background: transparent !important;
+}
+
+code[class*="language-"] {
+    background: transparent !important;
+}
+
+
