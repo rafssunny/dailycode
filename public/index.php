@@ -28,9 +28,12 @@
             <div class="container-terminal">
                 <div class="terminal">
                     <div class="mac">
-                        <span class="red"></span>
-                        <span class="yellow"></span>
-                        <span class="green"></span>
+                        <div class="mac-buttons">
+                            <span class="red"></span>
+                            <span class="yellow"></span>
+                            <span class="green"></span>
+                        </div>
+                        <img src="imgs/icons/python.png" alt="language icon" class="language-icon">
                     </div> 
                     <div class="code">
                         <pre><code class="language-python">print('Hello World')</code></pre>
@@ -46,6 +49,9 @@
             </div>
         </form>
     </main>
+    <footer>
+        <p>Every day a new coding challenge will be released for you to practice your skills. The programming languages used will vary."</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>

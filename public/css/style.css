@@ -92,8 +92,9 @@ main h2{
 .terminal{
     display: flex;
     flex-direction: column;
-    padding: 10px;
     width: clamp(350px, 85vw, 1400px);
+    padding: 10px;
+    margin: 20px;
     min-height: 350px;
     height: auto;
     border-radius: 10px;
@@ -103,13 +104,20 @@ main h2{
             0 0 10px rgba(255,255,255,0.3),
             0 0 20px rgba(255,255,255,0.2),
             0 0 40px rgba(255,255,255,0.1);
-    margin: 20px;
 }
 
 .mac{
     display: flex;
+    justify-content: space-between;
     align-items: center;
     cursor: text;
+    gap: 8px;
+}
+
+.mac-buttons{
+    display: flex;
+    margin-top: -20px;
+    padding-left: 10px;
     gap: 8px;
 }
 
@@ -130,6 +138,12 @@ main h2{
 
 .mac .green {
     background-color: #28c941;
+}
+
+.language-icon{
+    margin-top: -20px;
+    width: 50px;
+    margin-bottom: 0;
 }
 
 code{
@@ -177,6 +191,15 @@ code[class*="language-"] {
     max-width: 100px;
 }
 
+footer p{
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    font-family: var(--main-font);
+}
+
 /* mobile */
 @media (max-width: 800px){
     .container-output{
@@ -197,6 +220,5 @@ code[class*="language-"] {
     .button{
         height: 40px;
     }
-
 }
 
