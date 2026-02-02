@@ -23,6 +23,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 header h1{
@@ -79,7 +80,7 @@ main h2{
     padding: 10px;
 }
 
-.container{
+.container-terminal{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -144,5 +145,58 @@ code[class*="language-"] {
     background: transparent !important;
 }
 
+.container-output{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
 
+#dates, #output, .button{
+    width: 100%;
+    height: auto;
+    font-size: clamp(1rem, 2vw, 3rem);
+    font-family: var(--main-font);
+    background-color: transparent;
+    color: white;
+    border: 2px solid transparent; 
+    border-color: #1abb1a;
+}
+
+#dates{
+    max-width: 300px;
+    margin: 0 30px;
+}
+
+#output{
+    max-width: 400px;
+    margin: 0 20px;
+}
+
+.button{
+    max-width: 100px;
+}
+
+/* mobile */
+@media (max-width: 800px){
+    .container-output{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #dates{
+        max-width: 200px;
+        height: 40px;
+    }
+
+    #output{
+        max-width: 200px;
+        height: 40px;
+    }
+
+    .button{
+        height: 40px;
+    }
+
+}
 
