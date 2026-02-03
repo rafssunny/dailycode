@@ -17,7 +17,7 @@
             array_push($dates, $date['date']);
         }
 
-        $input = $_GET['dates'] ?? date('Y/m/d');
+        $input = $_GET['dates'] ?? $dates[0];
         
         if(in_array($input, $dates)){
             $values = findDateValues($input, $connection);
