@@ -10,23 +10,8 @@
 </head>
 <body>
     <?php
-        include_once('../process/codes.php');
-
-        $dates = [];
-        foreach($query_array as $date){
-            array_push($dates, $date['date']);
-        }
-
-        $input = $_GET['dates'] ?? $dates[0];
-        
-        if(in_array($input, $dates)){
-            $values = findDateValues($input, $connection);
-            $language = $values[0]['language'];
-            $code = $values[0]['code'];
-            $output = $values[0]['output'];
-        }
-
-        $language_values = getLanguageValues($language);
+        include_once('../process/functions.php');
+        include_once('../process/variables.php');
     ?>
     <header>
         <nav>
@@ -54,7 +39,7 @@
                         <img src="imgs/icons/<?=$language_values['icon']?>" alt="language icon" class="language-icon">
                     </div> 
                     <div class="code">
-                        <pre><code class=<?=$language_values['syntax']?>><?=$code?></code></pre>
+                        <pre><code class=<?=$language_values['formatting']?>><?=$code?></code></pre>
                     </div>
                 </div>
             </div>  

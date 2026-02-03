@@ -1,10 +1,6 @@
 <?php
 include_once ('../config/config.php');
 
-$query = $connection->query('SELECT * FROM dates 
-INNER JOIN codes ON dates.id = codes.id;');
-$query_array = $query->fetchAll();
-
 
 // functions
 function findDateValues($input, $connection): array{
@@ -21,11 +17,11 @@ function getLanguageValues($language): array{
     $values = [];
     switch($language){
         case 'Python':
-            return $values=['icon'=>'python.png', 'syntax'=>'language-python'];
+            return $values=['icon'=>'python.png', 'formatting'=>'language-python'];
         case 'Javascript':
-            return $values=['icon'=>'javascript.png', 'syntax'=>'language-javascript'];
+            return $values=['icon'=>'javascript.png', 'formatting'=>'language-javascript'];
         case 'Ruby':
-            return $values=['icon'=>'ruby.png', 'syntax'=>'language-ruby'];
+            return $values=['icon'=>'ruby.png', 'formatting'=>'language-ruby'];
         default:
             return $values = [];
     }

@@ -1,0 +1,33 @@
+<?php
+
+// i will create some comments just i dont get lost here ;_;
+
+// querys
+$query = $connection->query('SELECT * FROM dates 
+INNER JOIN codes ON dates.id = codes.id;');
+$query_array = $query->fetchAll();
+
+// create dates array
+$dates = [];
+foreach($query_array as $date){
+    array_push($dates, $date['date']);
+}
+
+// get the date selected
+$input = $_GET['dates'] ?? $dates[0];
+
+// get values related with the selected date
+if(in_array($input, $dates)){
+    $values = findDateValues($input, $connection);
+    $language = $values[0]['language'];
+    $code = $values[0]['code'];
+    $output = $values[0]['output'];
+}
+
+// get language icon and formatting syntax
+$language_values = getLanguageValues($language);
+
+//get output 
+$output = $_GET['output'] ?? '';
+
+?>
