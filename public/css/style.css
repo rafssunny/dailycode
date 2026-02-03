@@ -27,7 +27,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    margin-top: clamp(-100px, -2vh, -500px);
+    margin: 5px;
 }
 
 header h1{

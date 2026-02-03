@@ -10,16 +10,23 @@
 </head>
 <body>
     <?php
-        $today_date = date('m/d/Y');
+        include_once('../process/codes.php');
+
         $dates = [];
-        array_push($dates, $today_date);
+        foreach($query_array as $date){
+            array_push($dates, $date['date']);
+        }
+
+        $input = $_GET['dates'] ?? date('Y/m/d');
         
-        $input = $_GET['dates'];
+        if(in_array($input, $dates)){
+            $values = findDateValues($input, $connection);
+        }
     ?>
     <header>
         <nav>
             <h1>Daily code</h1>
-            <a href="https://github.com/rafssunny" rel="external" target="blank">
+            <a href="https://github.com/rafssunny" rel="external" target="_blank">
                 <div class="github">
                     <img src="imgs/github.png" alt="GitHub Logo">
                     <p>Github</p>
