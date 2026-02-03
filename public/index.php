@@ -21,7 +21,12 @@
         
         if(in_array($input, $dates)){
             $values = findDateValues($input, $connection);
+            $language = $values[0]['language'];
+            $code = $values[0]['code'];
+            $output = $values[0]['output'];
         }
+
+        $language_values = getLanguageValues($language);
     ?>
     <header>
         <nav>
@@ -46,10 +51,10 @@
                             <span class="yellow"></span>
                             <span class="green"></span>
                         </div>
-                        <img src="imgs/icons/python.png" alt="language icon" class="language-icon">
+                        <img src="imgs/icons/<?=$language_values['icon']?>" alt="language icon" class="language-icon">
                     </div> 
                     <div class="code">
-                        <pre><code class="language-python">print('Hello World')</code></pre>
+                        <pre><code class=<?=$language_values['syntax']?>><?=$code?></code></pre>
                     </div>
                 </div>
             </div>  
@@ -59,7 +64,7 @@
                     <?php
                         $selected = (isset($_GET['dates']) && $_GET['dates'] == $date) ? 'selected' : '';    
                     ?>
-                        <option value="<?= $date ?>" <?= $selected ?>><?= $date ?></option>
+                        <option value="<?= $date ?>" <?= $selected ?>><?= $date?></option>
                     <?php endforeach; ?>
                 </select>
                 <input type="text" name="output" id="output" placeholder="output...">
@@ -73,6 +78,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
     <script>
         const select = document.getElementById('dates')
         const form = document.getElementById('form')
