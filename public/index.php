@@ -12,6 +12,7 @@
     <?php
         include_once('../process/functions.php');
         include_once('../process/variables.php');
+        addTodayDate($connection);
     ?>
     <header>
         <nav>

@@ -36,4 +36,17 @@ function checkUserOutput($output, $user_output){
         }
     }
 }
+
+function addTodayDate($connection){
+    try{
+        $today_date = date('Y-m-d');
+        $query = $connection->prepare('INSERT INTO dates (date) VALUES (:date)');
+        $query->bindValue(':date', $today_date);
+
+        $query->execute();
+    }catch(Exception){
+        //
+    }
+}
+
 ?>

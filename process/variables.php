@@ -12,6 +12,7 @@ $dates = [];
 foreach($query_array as $date){
     array_push($dates, $date['date']);
 }
+rsort($dates);
 
 // get the date selected
 $input = $_GET['dates'] ?? $dates[0];
@@ -32,5 +33,4 @@ $user_output = $_GET['output'] ?? '';
 
 //get result
 $result = checkUserOutput($output, $user_output);
-
 ?>
