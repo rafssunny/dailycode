@@ -43,6 +43,9 @@
                     </div>
                 </div>
             </div>  
+            <div class="result">
+                <p><?=$result?></p>
+            </div>
             <div class="container-output">
                 <select name="dates" id="dates">
                     <?php foreach($dates as $date):?>
@@ -64,13 +67,6 @@
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
-    <script>
-        const select = document.getElementById('dates')
-        const form = document.getElementById('form')
-
-        select.addEventListener("change", function(){
-            form.submit() 
-        })
-    </script>
+    <script src="script/script.js"></script>
 </body>
 </html>

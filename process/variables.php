@@ -28,6 +28,9 @@ if(in_array($input, $dates)){
 $language_values = getLanguageValues($language);
 
 //get output 
-$output = $_GET['output'] ?? '';
+$user_output = $_GET['output'] ?? '';
+
+//get result
+$result = checkUserOutput($output, $user_output);
 
 ?>

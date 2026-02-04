@@ -163,6 +163,23 @@ code[class*="language-"] {
     background: transparent !important;
 }
 
+.result{
+    width: 200PX;
+    margin: 0 auto;
+    padding: 5px;
+    border: 2px solid white;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    display: none;
+}
+
+.result p {
+    color: white;
+    font-family: var(--main-font);
+    font-size: 2rem;
+    text-align: center;
+}
+
 .container-output{
     display: flex;
     justify-content: center;
@@ -215,12 +232,7 @@ footer p{
         gap: 10px;
     }
 
-    #dates{
-        max-width: 200px;
-        height: 40px;
-    }
-
-    #output{
+    #dates, #output, .result{
         max-width: 200px;
         height: 40px;
     }
@@ -228,5 +240,6 @@ footer p{
     .button{
         height: 40px;
     }
+
 }
 

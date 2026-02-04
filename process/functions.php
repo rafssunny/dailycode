@@ -26,4 +26,14 @@ function getLanguageValues($language): array{
             return $values = [];
     }
 }
+
+function checkUserOutput($output, $user_output){
+    if(!empty($user_output)){
+        if($output == $user_output){
+            return 'Correct';
+        }elseif($output != $user_output){
+            return 'Incorrect';
+        }
+    }
+}
 ?>
