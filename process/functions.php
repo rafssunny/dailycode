@@ -5,7 +5,7 @@ include_once ('../config/config.php');
 // functions
 function findDateValues($input, $connection): array{
     $query = $connection->prepare('SELECT * FROM dates 
-    INNER JOIN codes ON dates.id = codes.id
+    INNER JOIN codes ON dates.code_id = codes.id
     WHERE dates.date = ?');
 
     $query->execute([$input]);
@@ -18,7 +18,7 @@ function getLanguageValues($language): array{
     switch($language){
         case 'Python':
             return $values=['icon'=>'python.png', 'formatting'=>'language-python'];
-        case 'Javascript':
+        case 'JavaScript':
             return $values=['icon'=>'javascript.png', 'formatting'=>'language-javascript'];
         case 'Ruby':
             return $values=['icon'=>'ruby.png', 'formatting'=>'language-ruby'];

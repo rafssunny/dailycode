@@ -4,7 +4,7 @@
 
 // querys
 $query = $connection->query('SELECT * FROM dates 
-INNER JOIN codes ON dates.id = codes.id;');
+INNER JOIN codes ON dates.code_id = codes.id;');
 $query_array = $query->fetchAll();
 
 // create dates array
