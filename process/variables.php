@@ -14,6 +14,13 @@ foreach($query_array as $date){
 }
 rsort($dates);
 
+// create languages array
+$languages = [];
+foreach($query_array as $language){
+    array_push($languages, $language['language']);
+}
+$languages = array_reverse($languages);
+
 // get the date selected
 $input = $_GET['dates'] ?? $dates[0];
 

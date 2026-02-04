@@ -49,11 +49,11 @@
             </div>
             <div class="container-output">
                 <select name="dates" id="dates">
-                    <?php foreach($dates as $date):?>
+                    <?php foreach($dates as $index => $date):?>
                     <?php
                         $selected = (isset($_GET['dates']) && $_GET['dates'] == $date) ? 'selected' : '';    
                     ?>
-                        <option value="<?= $date ?>" <?= $selected ?>><?= $date?></option>
+                        <option value="<?= $date ?>" <?= $selected ?>><?= $date?> - <?=$languages[$index]?></option>
                     <?php endforeach; ?>
                 </select>
                 <input type="text" name="output" id="output" placeholder="output...">
