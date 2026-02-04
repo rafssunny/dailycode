@@ -22,6 +22,8 @@ function getLanguageValues($language): array{
             return $values=['icon'=>'javascript.png', 'formatting'=>'language-javascript'];
         case 'Ruby':
             return $values=['icon'=>'ruby.png', 'formatting'=>'language-ruby'];
+        case 'Php':
+            return $values=['icon'=>'php.png', 'formatting'=>'language-php'];
         default:
             return $values = [];
     }
@@ -40,10 +42,16 @@ function checkUserOutput($output, $user_output){
 function addTodayDate($connection){
     try{
         $today_date = date('Y-m-d');
-        $query = $connection->prepare('INSERT INTO dates (date) VALUES (:date)');
-        $query->bindValue(':date', $today_date);
+        $stmt = $connection->prepare('SELECT id FROM codes WHERE date=?');
+        $stmt->execute([$today_date]);
+        $code_data = $stmt->fetch();
 
-        $query->execute();
+        if ($code_data){
+            $code_id = $code_data['id'];
+
+            $query = $connection->prepare('INSERT INTO dates (code_id, date) VALUES (:id, :date)');
+            $query->execute([':id'=>$code_id, ':date'=>$today_date]);
+        }
     }catch(Exception){
         //
     }
