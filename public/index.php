@@ -40,7 +40,7 @@
                         <img src="imgs/icons/<?=$language_values['icon']?>" alt="language icon" class="language-icon">
                     </div> 
                     <div class="code">
-                        <pre><code class=<?=$language_values['formatting']?>><?=$code?></code></pre>
+                        <pre><code class=<?=$language_values['formatting']?>><?=htmlspecialchars($code)?></code></pre>
                     </div>
                 </div>
             </div>  
