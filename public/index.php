@@ -65,12 +65,9 @@
         <p>Every day a new coding challenge will be released for you to practice your skills.</p>
     </footer>
     
-    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-ruby.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/php.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js"></script>
 
-    <script src="script/script.js"></script>
+    <script defer src="script/script.js"></script>
 </body>
 </html>

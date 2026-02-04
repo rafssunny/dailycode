@@ -24,6 +24,8 @@ function getLanguageValues($language): array{
             return $values=['icon'=>'ruby.png', 'formatting'=>'language-ruby'];
         case 'Php':
             return $values=['icon'=>'php.png', 'formatting'=>'language-php'];
+        case 'Java':
+            return $values=['icon'=>'java.png', 'formatting'=>'language-java'];
         default:
             return $values = [];
     }
