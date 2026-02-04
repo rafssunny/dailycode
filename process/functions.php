@@ -49,8 +49,9 @@ function addTodayDate($connection){
         if ($code_data){
             $code_id = $code_data['id'];
 
-            $query = $connection->prepare('INSERT INTO dates (code_id, date) VALUES (:id, :date)');
-            $query->execute([':id'=>$code_id, ':date'=>$today_date]);
+        $query = $connection->prepare('INSERT IGNORE INTO dates (code_id, date) VALUES (?, ?)');
+        $query->execute([$code_id, $today_date]);
+
         }
     }catch(Exception){
         //
