@@ -18,8 +18,12 @@ rsort($dates);
 $input = $_GET['dates'] ?? $dates[0];
 
 // get values related with the selected date
-if(in_array($input, $dates)){
-    $values = findDateValues($input, $connection);
+if(isset($input)){
+    if(in_array($input, $dates)){
+        $values = findDateValues($input, $connection);
+    }else{
+        $values = findDateValues($dates[0], $connection);
+    }    
     $language = $values[0]['language'];
     $code = $values[0]['code'];
     $output = $values[0]['output'];
