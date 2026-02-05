@@ -26,6 +26,12 @@ function getLanguageValues($language): array{
             return $values=['icon'=>'php.png', 'formatting'=>'language-php'];
         case 'Java':
             return $values=['icon'=>'java.png', 'formatting'=>'language-java'];
+        case 'Go':
+            return $values=['icon'=>'go.png', 'formatting'=>'language-go'];
+        case 'C#':
+            return $values=['icon'=>'csharp.png', 'formatting'=>'language-csharp'];
+        case 'C++':
+            return $values=['icon'=>'cpp.png', 'formatting'=>'language-cpp'];
         default:
             return $values = [];
     }
