@@ -1,3 +1,11 @@
+<?php
+    include_once('../process/functions.php');
+    $connection = connectDataBase();
+
+    include_once('../process/variables.php');
+    addTodayDate($connection);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +17,6 @@
     <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
 </head>
 <body>
-    <?php
-        include_once('../process/functions.php');
-        include_once('../process/variables.php');
-        addTodayDate($connection);
-    ?>
     <header>
         <nav>
             <h1>Daily code</h1>

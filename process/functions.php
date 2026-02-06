@@ -3,6 +3,19 @@ include_once ('../config/config.php');
 
 
 // functions
+function connectDataBase(){
+    try{
+        return new PDO(
+        "mysql:host=" . HOST . ";dbname=" . DATABASE,
+        USER,
+        PASSWORD
+        );
+    } catch(PDOException $e){
+        echo 'ERROR: ' . $e->getMessage() . '</br>/';
+        die();
+    }
+}
+
 function findDateValues($input, $connection): array{
     $query = $connection->prepare('SELECT * FROM dates 
     INNER JOIN codes ON dates.code_id = codes.id
