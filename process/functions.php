@@ -9,8 +9,7 @@ function findDateValues($input, $connection): array{
     WHERE dates.date = ?');
 
     $query->execute([$input]);
-    $query_array = $query->fetchAll();
-    return $query_array;
+    return $query->fetchAll();
 }
 
 function getLanguageValues($language): array{
