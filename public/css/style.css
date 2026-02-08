@@ -3,6 +3,7 @@
 :root{
     --main-green: #1abb1a;
     --main-font: "Pixelify Sans", sans-serif;
+    --normal-font: "Arial";
 }
 
 *{
@@ -191,7 +192,7 @@ code[class*="language-"] {
     width: 100%;
     height: auto;
     font-size: clamp(1rem, 2vw, 3rem);
-    font-family: var(--main-font);
+    font-family: var(--normal-font);
     background-color: transparent;
     color: white;
     border: 2px solid transparent; 
@@ -201,7 +202,16 @@ code[class*="language-"] {
 #dates{
     max-width: 300px;
     margin: 0 30px;
+    background-color: black;
+    color: white;
+    padding: 5px;
 }
+
+#dates option{
+    background-color: black;
+    color: white;
+}
+
 
 #output{
     max-width: 400px;
@@ -209,6 +219,7 @@ code[class*="language-"] {
 }
 
 .button{
+    font-family: var(--main-font);
     max-width: 100px;
 }
 
