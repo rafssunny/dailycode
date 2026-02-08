@@ -59,23 +59,22 @@ function checkUserOutput($output, $user_output){
     }
 }
 
-function addTodayDate($connection){
-    try{
-        $today_date = date('Y-m-d');
-        $stmt = $connection->prepare('SELECT id FROM codes WHERE date=?');
-        $stmt->execute([$today_date]);
-        $code_data = $stmt->fetch();
+function checkTodayDateIsInDates($connection){
+    $today_date = date('Y-m-d');
+    $stmt = $connection->prepare('SELECT * FROM dates WHERE date = ?');
+    $stmt->execute([$today_date]);
+    $code_data = $stmt->fetch();
 
-        if ($code_data){
-            $code_id = $code_data['id'];
-
-        $query = $connection->prepare('INSERT IGNORE INTO dates (code_id, date) VALUES (?, ?)');
-        $query->execute([$code_id, $today_date]);
-
-        }
-    }catch(Exception){
-        //
+    if (!empty($array)){
+        addTodayDate($connection, $code_data, $today_date);
     }
+}
+
+function addTodayDate($connection, $code_data, $today_date){
+    $code_id = $code_data['id'];
+
+    $query = $connection->prepare('INSERT IGNORE INTO dates (code_id, date) VALUES (?, ?)');
+    $query->execute([$code_id, $today_date]);
 }
 
 ?>

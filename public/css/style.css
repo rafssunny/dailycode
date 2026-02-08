@@ -48,6 +48,7 @@ header a{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: var(--normal-font);
     background-color: white;
     min-width: 100px;
     border-radius: 20px;

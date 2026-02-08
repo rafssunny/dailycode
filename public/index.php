@@ -3,7 +3,7 @@
     $connection = connectDataBase();
 
     include_once('../process/variables.php');
-    addTodayDate($connection);
+    checkTodayDateIsInDates($connection);
 ?>
 
 <!DOCTYPE html>
@@ -52,10 +52,10 @@
             </div>
             <div class="container-output">
                 <select name="dates" id="dates">
-                    <?php foreach($dates as $index => $date):?>
-                    <?php
-                        $selected = (isset($_GET['dates']) && $_GET['dates'] == $date) ? 'selected' : '';    
-                    ?>
+                    <?php foreach ($dates as $index => $date) :?>
+                        <?php
+                        $selected = (isset($_GET['dates']) && $_GET['dates'] == $date) ? 'selected' : '';
+                        ?>
                         <option value="<?= $date ?>" <?= $selected ?>><?= $date?> - <?=$languages[$index]?></option>
                     <?php endforeach; ?>
                 </select>
