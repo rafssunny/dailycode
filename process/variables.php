@@ -6,30 +6,24 @@
 $query = $connection->query('SELECT * FROM dates 
 INNER JOIN codes ON dates.code_id = codes.id;');
 $query_array = $query->fetchAll();
+rsort($query_array);
 
-// create dates array
-$dates = [];
+// create available dates array
+$available_dates = [];
 foreach($query_array as $date){
-    array_push($dates, $date['date']);
+    array_push($available_dates, $date['date']);
 }
-rsort($dates);
-
-// create languages array
-$languages = [];
-foreach($query_array as $language){
-    array_push($languages, $language['language']);
-}
-$languages = array_reverse($languages);
+rsort($available_dates);
 
 // get the date selected
-$input = $_GET['dates'] ?? $dates[0];
+$input = $_GET['dates'] ?? $available_dates[0];
 
 // get values related with the selected date
 if(isset($input)){
-    if(in_array($input, $dates)){
+    if(in_array($input, $available_dates)){
         $values = findDateValues($input, $connection);
     }else{
-        $values = findDateValues($dates[0], $connection);
+        $values = findDateValues($available_dates[0], $connection);
     }    
     $language = $values[0]['language'];
     $code = $values[0]['code'];

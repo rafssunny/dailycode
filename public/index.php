@@ -52,11 +52,11 @@
             </div>
             <div class="container-output">
                 <select name="dates" id="dates">
-                    <?php foreach ($dates as $index => $date) :?>
+                    <?php foreach ($query_array as $values) :?>
                         <?php
-                        $selected = (isset($_GET['dates']) && $_GET['dates'] == $date) ? 'selected' : '';
+                        $selected = (isset($_GET['dates']) && $_GET['dates'] == $values['date']) ? 'selected' : '';
                         ?>
-                        <option value="<?= $date ?>" <?= $selected ?>><?= $date?> - <?=$languages[$index]?></option>
+                        <option value="<?= $values['date'] ?>" <?= $selected ?>><?= $values['date']?> - <?=$values['language']?></option>
                     <?php endforeach; ?>
                 </select>
                 <input type="text" name="output" id="output" placeholder="output...">

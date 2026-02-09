@@ -61,11 +61,11 @@ function checkUserOutput($output, $user_output){
 
 function checkTodayDateIsInDates($connection){
     $today_date = date('Y-m-d');
-    $stmt = $connection->prepare('SELECT * FROM dates WHERE date = ?');
+    $stmt = $connection->prepare('SELECT * FROM codes WHERE date = ?');
     $stmt->execute([$today_date]);
     $code_data = $stmt->fetch();
 
-    if (!empty($array)){
+    if (!empty($code_data)){
         addTodayDate($connection, $code_data, $today_date);
     }
 }
