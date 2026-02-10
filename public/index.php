@@ -59,7 +59,7 @@
                         <option value="<?= $values['date'] ?>" <?= $selected ?>><?= $values['date']?> - <?=$values['language']?></option>
                     <?php endforeach; ?>
                 </select>
-                <input type="text" name="output" id="output" placeholder="output...">
+                <input type="text" name="output" id="output" placeholder="output..." required>
                 <button type="submit" class="button">Ok</button>
             </div>
         </form>

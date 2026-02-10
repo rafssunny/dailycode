@@ -25,40 +25,6 @@ function findDateValues($input, $connection): array{
     return $query->fetchAll();
 }
 
-function getLanguageValues($language): array{
-    $values = [];
-    switch($language){
-        case 'Python':
-            return $values=['icon'=>'python.png', 'formatting'=>'language-python'];
-        case 'JavaScript':
-            return $values=['icon'=>'javascript.png', 'formatting'=>'language-javascript'];
-        case 'Ruby':
-            return $values=['icon'=>'ruby.png', 'formatting'=>'language-ruby'];
-        case 'Php':
-            return $values=['icon'=>'php.png', 'formatting'=>'language-php'];
-        case 'Java':
-            return $values=['icon'=>'java.png', 'formatting'=>'language-java'];
-        case 'Go':
-            return $values=['icon'=>'go.png', 'formatting'=>'language-go'];
-        case 'C#':
-            return $values=['icon'=>'csharp.png', 'formatting'=>'language-csharp'];
-        case 'C++':
-            return $values=['icon'=>'cpp.png', 'formatting'=>'language-cpp'];
-        default:
-            return $values = [];
-    }
-}
-
-function checkUserOutput($output, $user_output){
-    if(!empty($user_output)){
-        if($output == $user_output){
-            return 'Correct';
-        }elseif($output != $user_output){
-            return 'Incorrect';
-        }
-    }
-}
-
 function checkTodayDateIsInDates($connection){
     $today_date = date('Y-m-d');
     $stmt = $connection->prepare('SELECT * FROM codes WHERE date = ?');

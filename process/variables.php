@@ -31,11 +31,24 @@ if(isset($input)){
 }
 
 // get language icon and formatting syntax
-$language_values = getLanguageValues($language);
+$language_values = match($language){
+    'Python' => ['icon'=>'python.png', 'formatting'=>'language-python'],
+    'JavaScript' => ['icon'=>'javascript.png', 'formatting'=>'language-javascript'],
+    'Ruby' => ['icon'=>'ruby.png', 'formatting'=>'language-ruby'],
+    'Php' => ['icon'=>'php.png', 'formatting'=>'language-php'],
+    'Java' => ['icon'=>'java.png', 'formatting'=>'language-java'],
+    'Go' => ['icon'=>'go.png', 'formatting'=>'language-go'],
+    'C#' => ['icon'=>'csharp.png', 'formatting'=>'language-csharp'],
+    'C++' => ['icon'=>'cpp.png', 'formatting'=>'language-cpp']
+    };
 
 //get output 
 $user_output = $_GET['output'] ?? '';
+$user_output = trim($user_output);
 
 //get result
-$result = checkUserOutput($output, $user_output);
-?>
+$result = match($user_output){
+    $output => 'Correct',
+    '' => '',
+    default => 'Incorrect',
+};
