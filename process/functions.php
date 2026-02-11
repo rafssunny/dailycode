@@ -3,7 +3,7 @@ include_once ('../config/config.php');
 
 
 // functions
-function connectDataBase(){
+function connectDataBase(): PDO{
     try{
         return new PDO(
         "mysql:host=" . HOST . ";dbname=" . DATABASE,
@@ -16,7 +16,7 @@ function connectDataBase(){
     }
 }
 
-function findDateValues($input, $connection): array{
+function findDateValues(string $input, PDO $connection): array{
     $query = $connection->prepare('SELECT * FROM dates 
     INNER JOIN codes ON dates.code_id = codes.id
     WHERE dates.date = ?');
@@ -25,7 +25,7 @@ function findDateValues($input, $connection): array{
     return $query->fetchAll();
 }
 
-function checkTodayDateIsInDates($connection){
+function checkTodayDateIsInDates(PDO $connection): void{
     $today_date = date('Y-m-d');
     $stmt = $connection->prepare('SELECT * FROM codes WHERE date = ?');
     $stmt->execute([$today_date]);
@@ -36,7 +36,7 @@ function checkTodayDateIsInDates($connection){
     }
 }
 
-function addTodayDate($connection, $code_data, $today_date){
+function addTodayDate(PDO $connection, array $code_data, string $today_date): void{
     $code_id = $code_data['id'];
 
     $query = $connection->prepare('INSERT IGNORE INTO dates (code_id, date) VALUES (?, ?)');
