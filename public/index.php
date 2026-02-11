@@ -54,12 +54,10 @@ checkTodayDateIsInDates($connection);
             </div>
             <div class="container-output">
                 <select name="dates" id="dates">
-                    <?php foreach ($query_array as $values): ?>
-                        <?php
-                        $selected = (isset($_GET['dates']) && $_GET['dates'] == $values['date']) ? 'selected' : '';
-                        ?>
-                        <option value="<?= $values['date'] ?>" <?= $selected ?>><?= $values['date'] ?> -
-                            <?= $values['language'] ?>
+                    <?php foreach ($options as $option): ?>
+                        <option value="<?= $option['date'] ?>" <?= $option['selected'] ? 'selected' : '' ?>>
+                            <?= $option['date'] ?> -
+                            <?= $option['language'] ?>
                         </option>
                     <?php endforeach; ?>
                 </select>

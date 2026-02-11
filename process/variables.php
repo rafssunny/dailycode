@@ -52,3 +52,14 @@ $result = match ($user_output) {
     '' => '',
     default => 'Incorrect',
 };
+
+//get options
+$options = [];
+
+foreach ($query_array as $values) {
+    $options[] = [
+        'date' => $values['date'],
+        'language' => $values['language'],
+        'selected' => isset($_GET['dates']) && $_GET['dates'] == $values['date']
+    ];
+}
