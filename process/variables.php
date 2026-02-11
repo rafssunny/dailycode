@@ -44,7 +44,7 @@ $language_values = match ($language) {
 
 //get output
 $user_output = $_GET['output'] ?? '';
-$user_output = trim($user_output);
+$user_output = str_replace(" ", "", $user_output);
 
 //get result
 $result = match ($user_output) {
