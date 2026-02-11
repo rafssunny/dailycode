@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 
-:root{
+:root {
     --main-green: #1abb1a;
     --main-font: "Pixelify Sans", sans-serif;
     --normal-font: "Arial";
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -19,11 +19,12 @@ body{
 }
 
 /* header */
-header{
+header {
     width: clamp(360px, 90vw, 1600px);
     margin: 0 auto;
 }
-nav{
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,7 +32,7 @@ nav{
     margin: 5px;
 }
 
-header h1{
+header h1 {
     font-family: var(--main-font);
     font-optical-sizing: auto;
     font-weight: bold;
@@ -40,11 +41,11 @@ header h1{
     color: var(--main-green);
 }
 
-header a{
+header a {
     text-decoration: none;
 }
 
-.github{
+.github {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,12 +55,12 @@ header a{
     border-radius: 20px;
 }
 
-.github img{
+.github img {
     width: clamp(30px, 3vw, 60px);
     padding: 5px 5px;
 }
 
-.github p{
+.github p {
     letter-spacing: 2px;
     color: black;
     font-size: clamp(1rem, 2vw, 1.8rem);
@@ -67,13 +68,13 @@ header a{
 }
 
 /* main */
-main{
+main {
     width: clamp(300px, 90vw, 1600px);
     margin: 0 auto;
     flex: 1;
 }
 
-main h2{
+main h2 {
     font-family: var(--main-font);
     font-optical-sizing: auto;
     font-weight: normal;
@@ -86,7 +87,7 @@ main h2{
     padding: 10px;
 }
 
-.container-terminal{
+.container-terminal {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -95,7 +96,7 @@ main h2{
     gap: 20px;
 }
 
-.terminal{
+.terminal {
     display: flex;
     flex-direction: column;
     width: clamp(350px, 85vw, 1400px);
@@ -106,13 +107,13 @@ main h2{
     border-radius: 10px;
     background-color: #222533;
     color: #fbebe2;
-    box-shadow: 
-            0 0 10px rgba(255,255,255,0.3),
-            0 0 20px rgba(255,255,255,0.2),
-            0 0 40px rgba(255,255,255,0.1);
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.2),
+        0 0 40px rgba(255, 255, 255, 0.1);
 }
 
-.mac{
+.mac {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -120,7 +121,7 @@ main h2{
     gap: 8px;
 }
 
-.mac-buttons{
+.mac-buttons {
     display: flex;
     margin-top: -20px;
     padding-left: 10px;
@@ -146,13 +147,13 @@ main h2{
     background-color: #28c941;
 }
 
-.language-icon{
+.language-icon {
     margin-top: -20px;
     width: 50px;
     margin-bottom: 0;
 }
 
-code{
+code {
     overflow-x: auto;
     font-size: clamp(0.8rem, 1.2vw, 1rem);
 }
@@ -165,7 +166,7 @@ code[class*="language-"] {
     background: transparent !important;
 }
 
-.result{
+.result {
     width: 200PX;
     margin: 0 auto;
     padding: 5px;
@@ -182,25 +183,27 @@ code[class*="language-"] {
     text-align: center;
 }
 
-.container-output{
+.container-output {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px;
 }
 
-#dates, #output, .button{
+#dates,
+#output,
+.button {
     width: 100%;
     height: auto;
     font-size: clamp(1rem, 2vw, 3rem);
     font-family: var(--normal-font);
     background-color: transparent;
     color: white;
-    border: 2px solid transparent; 
+    border: 2px solid transparent;
     border-color: var(--main-green);
 }
 
-#dates{
+#dates {
     max-width: 300px;
     margin: 0 30px;
     background-color: black;
@@ -208,27 +211,27 @@ code[class*="language-"] {
     padding: 5px;
 }
 
-#dates option{
+#dates option {
     background-color: black;
     color: white;
 }
 
 
-#output{
+#output {
     max-width: 400px;
     margin: 0 20px;
 }
 
-.button{
+.button {
     font-family: var(--main-font);
     max-width: 100px;
 }
 
-.button:hover{
+.button:hover {
     transform: translateY(-5px);
 }
 
-footer p{
+footer p {
     flex-shrink: 0;
     padding: 20px;
     text-align: center;
@@ -238,20 +241,21 @@ footer p{
 }
 
 /* mobile */
-@media (max-width: 800px){
-    .container-output{
+@media (max-width: 800px) {
+    .container-output {
         flex-direction: column;
         gap: 10px;
     }
 
-    #dates, #output, .result{
+    #dates,
+    #output,
+    .result {
         max-width: 200px;
         height: 40px;
     }
 
-    .button{
+    .button {
         height: 40px;
     }
 
 }
-

@@ -10,7 +10,7 @@ rsort($query_array);
 
 // create available dates array
 $available_dates = [];
-foreach($query_array as $date){
+foreach ($query_array as $date) {
     array_push($available_dates, $date['date']);
 }
 rsort($available_dates);
@@ -19,35 +19,35 @@ rsort($available_dates);
 $input = $_GET['dates'] ?? $available_dates[0];
 
 // get values related with the selected date
-if(isset($input)){
-    if(in_array($input, $available_dates)){
+if (isset($input)) {
+    if (in_array($input, $available_dates)) {
         $values = findDateValues($input, $connection);
-    }else{
+    } else {
         $values = findDateValues($available_dates[0], $connection);
-    }    
+    }
     $language = $values[0]['language'];
     $code = $values[0]['code'];
     $output = $values[0]['output'];
 }
 
 // get language icon and formatting syntax
-$language_values = match($language){
-    'Python' => ['icon'=>'python.png', 'formatting'=>'language-python'],
-    'JavaScript' => ['icon'=>'javascript.png', 'formatting'=>'language-javascript'],
-    'Ruby' => ['icon'=>'ruby.png', 'formatting'=>'language-ruby'],
-    'Php' => ['icon'=>'php.png', 'formatting'=>'language-php'],
-    'Java' => ['icon'=>'java.png', 'formatting'=>'language-java'],
-    'Go' => ['icon'=>'go.png', 'formatting'=>'language-go'],
-    'C#' => ['icon'=>'csharp.png', 'formatting'=>'language-csharp'],
-    'C++' => ['icon'=>'cpp.png', 'formatting'=>'language-cpp']
-    };
+$language_values = match ($language) {
+    'Python' => ['icon' => 'python.png', 'formatting' => 'language-python'],
+    'JavaScript' => ['icon' => 'javascript.png', 'formatting' => 'language-javascript'],
+    'Ruby' => ['icon' => 'ruby.png', 'formatting' => 'language-ruby'],
+    'Php' => ['icon' => 'php.png', 'formatting' => 'language-php'],
+    'Java' => ['icon' => 'java.png', 'formatting' => 'language-java'],
+    'Go' => ['icon' => 'go.png', 'formatting' => 'language-go'],
+    'C#' => ['icon' => 'csharp.png', 'formatting' => 'language-csharp'],
+    'C++' => ['icon' => 'cpp.png', 'formatting' => 'language-cpp']
+};
 
-//get output 
+//get output
 $user_output = $_GET['output'] ?? '';
 $user_output = trim($user_output);
 
 //get result
-$result = match($user_output){
+$result = match ($user_output) {
     $output => 'Correct',
     '' => '',
     default => 'Incorrect',
