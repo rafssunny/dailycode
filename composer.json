@@ -1,0 +1,14 @@
+{
+    "name": "rafa/dailycode",
+    "autoload": {
+        "psr-4": {
+            "Rafa\\Dailycode\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rafael Olegário"
+        }
+    ],
+    "require": {}
+}

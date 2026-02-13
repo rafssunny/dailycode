@@ -1,4 +1,8 @@
 <?php
+namespace Rafa\Dailycode\Database;
+
+use PDO;
+use PDOException;
 
 class Database
 {

@@ -1,4 +1,7 @@
 <?php
+namespace Rafa\Dailycode\Dates;
+
+use PDO;
 
 class Dates
 {
