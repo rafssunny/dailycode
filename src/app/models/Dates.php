@@ -1,5 +1,5 @@
 <?php
-namespace Rafa\Dailycode\Dates;
+namespace Rafa\Dailycode\models;
 
 use PDO;
 

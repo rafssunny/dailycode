@@ -2,7 +2,7 @@
     "name": "rafa/dailycode",
     "autoload": {
         "psr-4": {
-            "Rafa\\Dailycode\\": "src/"
+            "Rafa\\Dailycode\\": "src/app/"
         }
     },
     "authors": [

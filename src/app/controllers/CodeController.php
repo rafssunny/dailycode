@@ -1,11 +1,9 @@
 <?php
-namespace Rafa\Dailycode\CodeController;
+namespace Rafa\Dailycode\controllers;
 
-include_once "vendor/autoload.php";
-
-use Rafa\Dailycode\Codes\Codes;
-use Rafa\Dailycode\Database\Database;
-use Rafa\Dailycode\Dates\Dates;
+use Rafa\Dailycode\models\Codes;
+use Rafa\Dailycode\models\Database;
+use Rafa\Dailycode\models\Dates;
 use PDO;
 
 class CodeController
@@ -13,19 +11,20 @@ class CodeController
     private PDO $connection;
     private object $codes;
     private object $dates;
-    
+    public array $view_values;
+
     public function __construct()
     {
         $database = new Database();
         $this->connection = $database->connectDataBase();
         $this->codes = new Codes();
         $this->dates = new Dates();
-        
-        $this->codes->checkTodayDateIsInDates();
+
+        $this->codes->checkTodayDateIsInDates($this->connection, $this->dates);
     }
     public function index()
     {
-        
+
         $available_dates = [];
         foreach ($this->codes->getValues($this->connection) as $date) {
             array_push($available_dates, $date['date']);
@@ -80,5 +79,14 @@ class CodeController
                 'selected' => isset($_GET['dates']) && $_GET['dates'] == $values['date']
             ];
         }
+
+        $view_values = [
+            'code' => $code,
+            'language_values' => $language_values,
+            'result' => $result
+        ];
+        extract($view_values);
+
+        include_once __DIR__ . "/../views/index.php";
     }
 }

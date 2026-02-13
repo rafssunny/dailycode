@@ -1,7 +1,5 @@
 <?php
-namespace Rafa\Dailycode\Codes;
-
-include_once ("vendor/autoload.php");
+namespace Rafa\Dailycode\models;
 
 use PDO;
 

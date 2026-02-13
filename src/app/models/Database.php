@@ -1,5 +1,5 @@
 <?php
-namespace Rafa\Dailycode\Database;
+namespace Rafa\Dailycode\models;
 
 use PDO;
 use PDOException;
