@@ -27,27 +27,22 @@ class CodeController
     }
     public function index()
     {
-
-        $available_dates = [];
-        foreach ($this->codes->getValues($this->connection) as $date) {
-            array_push($available_dates, $date['date']);
-        }
-        rsort($available_dates);
+        // get available
+        $available_dates = $this->dates->getAvailableDates($this->codes->getValues($this->connection));
 
         // get the date selected
-        $input = $_GET['dates'] ?? $available_dates[0];
-
+        $input = $_GET['dates'] ?? $available_dates[0]['date'];
+        
         // get values related with the selected date
-        if (isset($input)) {
-            if (in_array($input, $available_dates)) {
-                $values = $this->dates->findDateValues($input, $this->connection);
-            } else {
-                $values = $this->dates->findDateValues($available_dates[0], $this->connection);
-            }
-            $language = $values[0]['language'];
-            $code = $values[0]['code'];
-            $output = $values[0]['output'];
+        if (in_array($input, $available_dates)) {
+            $values = $this->dates->findDateValues($input, $this->connection);
+        } else {
+            $values = $this->dates->findDateValues($available_dates[0]['date'], $this->connection);
         }
+        $language = $values[0]['language'];
+        $code = $values[0]['code'];
+        $output = $values[0]['output'];
+    
 
         // get language icon and formatting syntax
         $language_values = $this->languages->getIconAndFormatting($language);
@@ -57,11 +52,7 @@ class CodeController
         $user_output = str_replace(" ", "", $user_output);
 
         //get result
-        $result = match ($user_output) {
-            $output => 'Correct',
-            '' => '',
-            default => 'Incorrect',
-        };
+        $result = $this->codes->checkUserOutput($output, $user_output);
 
         //get options
         $options = [];

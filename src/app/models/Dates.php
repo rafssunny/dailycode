@@ -22,4 +22,14 @@ class Dates
         $query = $connection->prepare('INSERT IGNORE INTO dates (code_id, date) VALUES (?, ?)');
         $query->execute([$code_id, $today_date]);
     }
+    public function getAvailableDates(array $values): array
+    {
+        $available_dates = [];
+        foreach ($values as $index => $date) {
+            array_push($available_dates, $date);
+        }
+        $available_dates = array_column($available_dates, 'date');
+        rsort($available_dates);
+        return $available_dates;
+    }
 }

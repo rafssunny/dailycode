@@ -25,4 +25,12 @@ class Codes
         }
     }
 
+    public function checkUserOutput($output, $user_output): string
+    {
+        return match ($user_output) {
+            $output => 'Correct',
+            '' => '',
+            default => 'Incorrect',
+        };
+    }
 }
