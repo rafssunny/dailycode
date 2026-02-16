@@ -4,6 +4,7 @@ namespace Rafa\Dailycode\controllers;
 use Rafa\Dailycode\models\Codes;
 use Rafa\Dailycode\models\Database;
 use Rafa\Dailycode\models\Dates;
+use \Rafa\Dailycode\models\Languages;
 use PDO;
 
 class CodeController
@@ -11,6 +12,7 @@ class CodeController
     private PDO $connection;
     private object $codes;
     private object $dates;
+    private object $languages; 
     public array $view_values;
 
     public function __construct()
@@ -19,6 +21,7 @@ class CodeController
         $this->connection = $database->connectDataBase();
         $this->codes = new Codes();
         $this->dates = new Dates();
+        $this->languages = new Languages();
 
         $this->codes->checkTodayDateIsInDates($this->connection, $this->dates);
     }
@@ -47,16 +50,7 @@ class CodeController
         }
 
         // get language icon and formatting syntax
-        $language_values = match ($language) {
-            'Python' => ['icon' => 'python.png', 'formatting' => 'language-python'],
-            'JavaScript' => ['icon' => 'javascript.png', 'formatting' => 'language-javascript'],
-            'Ruby' => ['icon' => 'ruby.png', 'formatting' => 'language-ruby'],
-            'Php' => ['icon' => 'php.png', 'formatting' => 'language-php'],
-            'Java' => ['icon' => 'java.png', 'formatting' => 'language-java'],
-            'Go' => ['icon' => 'go.png', 'formatting' => 'language-go'],
-            'C#' => ['icon' => 'csharp.png', 'formatting' => 'language-csharp'],
-            'C++' => ['icon' => 'cpp.png', 'formatting' => 'language-cpp']
-        };
+        $language_values = $this->languages->getIconAndFormatting($language);
 
         //get output
         $user_output = $_GET['output'] ?? '';
@@ -72,7 +66,7 @@ class CodeController
         //get options
         $options = [];
 
-        foreach ($this->codes as $values) {
+        foreach ($this->codes->getValues($this->connection) as $values) {
             $options[] = [
                 'date' => $values['date'],
                 'language' => $values['language'],

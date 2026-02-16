@@ -1,4 +1,5 @@
 <?php
+
 namespace Rafa\Dailycode\models;
 
 use PDO;
