@@ -13,6 +13,13 @@ class Codes
         rsort($query_array);
         return $query_array;
     }
+    public function getValuesOfSelectedDate(string $input, array $available_dates, object $dates, PDO $connection): array
+    {
+        if (in_array($input, $available_dates)){
+            return $dates->findDateValues($input, $connection);
+        }
+        return $dates->findDateValues($available_dates[0], $connection);
+    }
     public function checkTodayDateIsInDates(PDO $connection, $dates): void
     {
         $today_date = date('Y-m-d');

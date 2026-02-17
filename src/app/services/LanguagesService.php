@@ -1,8 +1,8 @@
 <?php
 
-namespace Rafa\Dailycode\models;
+namespace Rafa\Dailycode\services;
 
-class Languages
+class LanguagesService
 {
     public function getIconAndFormatting($language): array
     {

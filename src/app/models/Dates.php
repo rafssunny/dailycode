@@ -25,7 +25,7 @@ class Dates
     public function getAvailableDates(array $values): array
     {
         $available_dates = [];
-        foreach ($values as $index => $date) {
+        foreach ($values as $date) {
             array_push($available_dates, $date);
         }
         $available_dates = array_column($available_dates, 'date');
