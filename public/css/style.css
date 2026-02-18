@@ -220,6 +220,7 @@ code[class*="language-"] {
 #output {
     max-width: 400px;
     margin: 0 20px;
+    padding-left: 5px;
 }
 
 .button {
