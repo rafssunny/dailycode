@@ -14,13 +14,18 @@
     <header>
         <nav>
             <h1>Daily code</h1>
-            <a href="https://github.com/rafssunny" rel="external" target="_blank">
-                <div class="github">
-                    <img src="imgs/github.png" alt="GitHub Logo">
-                    <p>Github</p>
-                </div>
-            </a>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="">Home</a></li>
+                <li><a href="">Credits</a></li>
+            </ul>
+
         </nav>
+        <p>Every day a new coding challenge will be released for you to practice your skills.</p>
     </header>
 
     <main>
@@ -58,14 +63,12 @@
             </div>
         </form>
     </main>
-    <footer>
-        <p>Every day a new coding challenge will be released for you to practice your skills.</p>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js" defer></script>
 
     <script src="script/script.js" defer></script>
+    <script src="script/mobile-navbar.js" defer></script>
 </body>
 
 </html>
