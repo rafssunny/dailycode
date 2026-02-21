@@ -21,13 +21,13 @@
             </div>
             <ul class="nav-list">
                 <li><a href="">Home</a></li>
+                <li><a href="">Statistics</a></li>
                 <li><a href="">Credits</a></li>
             </ul>
 
         </nav>
-        <p>Every day a new coding challenge will be released for you to practice your skills.</p>
     </header>
-
+    <hr>
     <main>
         <form action="" method="get" id="form">
             <h2>What will be the output?</h2>
@@ -63,6 +63,10 @@
             </div>
         </form>
     </main>
+    <hr>
+    <?php include_once __DIR__ . "/../views/statistics.php"; ?>
+    <hr>
+    <?php include_once __DIR__ . "/../views/credits.php";?>
 
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js" defer></script>

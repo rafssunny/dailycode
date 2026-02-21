@@ -25,12 +25,6 @@ header {
     font-family: var(--main-font);
 }
 
-header p {
-    width: auto;
-    color: white;
-    padding: 10px;
-}
-
 nav {
     display: flex;
     justify-content: space-between;
@@ -40,7 +34,8 @@ nav {
     height: 8vh;
 }
 
-header h1 {
+h1{
+    font-family: var(--main-font);
     font-optical-sizing: auto;
     font-weight: bold;
     font-style: normal;
@@ -66,6 +61,8 @@ a:hover {
 .nav-list li {
     letter-spacing: 3px;
     margin-left: 32px;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+
 }
 
 .mobile-menu {
@@ -78,7 +75,15 @@ a:hover {
     height: 2px;
     background: white;
     margin: 8px;
+    transition: 0.3s;
 }
+
+hr {
+    width: 90vw;
+    margin: 10px auto;
+    color: #b3dab997;
+}
+
 
 /* main */
 main {
@@ -92,11 +97,11 @@ main h2 {
     font-optical-sizing: auto;
     font-weight: normal;
     font-style: italic;
-    font-size: clamp(1.2rem, 2vw, 2rem);
+    font-size: clamp(1.5rem, 3vw, 3rem);
     color: white;
     text-align: center;
     letter-spacing: 2px;
-    margin: 5px;
+    margin: 10px 5px;
     padding: 10px;
 }
 
@@ -273,7 +278,8 @@ code[class*="language-"] {
         right: 0;
         width: 50vw;
         height: 92vh;
-        background: #23232e;
+        padding-left: 20px;
+        background: #000000;
         flex-direction: column;
         justify-content: space-around;
         transform: translateX(100%);
@@ -303,4 +309,16 @@ code[class*="language-"] {
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+.mobile-menu.active .line1{
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.mobile-menu.active .line2{
+    opacity: 0;
+}
+
+.mobile-menu.active .line3{
+    transform: rotate(45deg) translate(-5px, -7px);
 }
