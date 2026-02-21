@@ -252,21 +252,19 @@ code[class*="language-"] {
 
 /* sections */
 section {
-    margin: 0 5vw;
+    width: clamp(300px, 90vw, 1600px);
+    margin: 5px auto;
 }
 
 .box {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 20px;
-    margin: 5px;
-    height: 8vh;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .box p {
     color: white;
-    font-size: clamp(1rem, 2vw, 2rem)
+    font-size: clamp(1rem, 2vw, 2rem);
 }
 
 /* mobile */

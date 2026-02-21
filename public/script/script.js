@@ -5,6 +5,8 @@ const form = document.getElementById('form')
 const result = document.querySelector('.result')
 
 let streak = localStorage.getItem('streak')
+const streak_DOM = document.getElementById('streak')
+streak_DOM.innerHTML = 'Your Streak: 🔥' + streak + ' days'
 let selected_date = document.getElementById('dates').value
 
 const today_date = new Date().toISOString().split("T")[0]
