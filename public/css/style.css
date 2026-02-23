@@ -28,7 +28,13 @@ section {
 
 /* header */
 header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1000;
     font-family: var(--main-font);
+    backdrop-filter: blur(10px);
 }
 
 nav {
