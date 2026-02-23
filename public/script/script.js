@@ -4,9 +4,7 @@ const result = document.querySelector('.result')
 
 let streak = localStorage.getItem('streak')
 const streak_DOM = document.getElementById('streak')
-streak_DOM.innerHTML = streak + ' days'
 let selected_date = document.getElementById('dates').value
-
 
 // dates functions 
 function getTodayDate() {
@@ -14,13 +12,14 @@ function getTodayDate() {
 }
 
 function getTodayDayNumber() {
-    return new Date.getDate()
+    const date = new Date()
+    return date.getDate()
 }
 
 function getBeforeYesterdayDayNumber() {
     const date = new Date()
     date.setDate(date.getDate() - 2)
-    return d.getDate()
+    return date.getDate()
 }
 
 // main function for daily access
@@ -38,16 +37,24 @@ function initializeDailyAccess() {
     if (last_access_day != today_day) {
         localStorage.setItem('lastAccessDay', today_day)
     }
+
+    return {
+        today_date,
+        last_access_day
+    }
 }
 
+// start daily access logic
+const dates = initializeDailyAccess()
+const before_yesterday = getBeforeYesterdayDayNumber()
+
 // if streak dont exists, start in 0
-if (streak == null || last_access_day === before_yesterday) {
+if (streak == null || Number(dates.last_access_day)-2 == before_yesterday) {
     streak = 0
     localStorage.setItem('streak', streak)
 }
 
-// start daily access logic
-initializeDailyAccess()
+streak_DOM.innerHTML = streak + ' days'
 
 // update page after submit
 select.addEventListener("change", function () {
@@ -58,7 +65,7 @@ select.addEventListener("change", function () {
 if (result && result.textContent.trim() === 'Correct') {
     result.style.display = 'block'
     result.style.backgroundColor = '#268726ff';
-    if (localStorage.getItem('firstTodayHit') == 'true' && selected_date == today_date) {
+    if (localStorage.getItem('firstTodayHit') == 'true' && selected_date == dates.today_date) {
         streak = Number(++streak)
         localStorage.setItem('streak', streak)
     }
