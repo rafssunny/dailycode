@@ -1,4 +1,4 @@
-<section>
+<section id="statistics">
     <h1>Statistics</h1>
     <div class="box">
         <div class="card">

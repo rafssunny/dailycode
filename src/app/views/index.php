@@ -20,15 +20,15 @@
                 <div class="line3"></div>
             </div>
             <ul class="nav-list">
-                <li><a href="">Home</a></li>
-                <li><a href="">Statistics</a></li>
-                <li><a href="">Credits</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href=#statistics>Statistics</a></li>
+                <li><a href="#credits">Credits</a></li>
             </ul>
 
         </nav>
     </header>
     <hr>
-    <main>
+    <main id="home">
         <form action="" method="get" id="form">
             <h2>What will be the output?</h2>
             <div class="container-terminal">
