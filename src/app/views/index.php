@@ -27,9 +27,8 @@
 
         </nav>
     </header>
-    <hr>
     <main id="home">
-        <form action="" method="get" id="form">
+        <form action="#home" method="get" id="form">
             <h2>What will be the output?</h2>
             <div class="container-terminal">
                 <div class="terminal">
