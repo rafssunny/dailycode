@@ -2,26 +2,28 @@ const select = document.getElementById('dates')
 const form = document.getElementById('form')
 const result = document.querySelector('.result')
 
-let streak = localStorage.getItem('streak') || 0
-let best_streak = localStorage.getItem('best_streak') || 0
+let streak = Number(localStorage.getItem('streak')) || 0
+let best_streak = Number(localStorage.getItem('best_streak')) || 0
 const streak_DOM = document.getElementById('streak')
 const best_streak_DOM = document.getElementById('best_streak')
 let selected_date = document.getElementById('dates').value
 
-let attempts_today = localStorage.getItem('attempts_today') || 0
+let attempts_today = Number(localStorage.getItem('attempts_today')) || 0
 const attemps_DOM = document.getElementById('attemps')
 
 // streak functions
-function verifyStreak(streak, last_access_day, before_yesterday) {
+function verifyStreak(last_access_date, today_date, yesterday_date) {
     // if streak dont exists, start in 0
-    if (Number(last_access_day) == before_yesterday) {
+    if (last_access_date != yesterday_date && last_access_date != today_date) {
+        streak = 0
         localStorage.setItem('streak', streak)
     }
 }
 
 function setBestStreak() {
-    if (best_streak <= streak) {
-        localStorage.setItem('best_streak', streak)
+    if (streak > best_streak) {
+        best_streak = streak
+        localStorage.setItem('best_streak', best_streak)
     }
 }
 
@@ -30,40 +32,34 @@ function getTodayDate() {
     return new Date().toISOString().split("T")[0]
 }
 
-function getTodayDayNumber() {
-    const date = new Date()
-    return date.getDate()
-}
+function getYesterdayDate() {
+    const date = new Date(); 
+    date.setDate(date.getDate() - 1);
 
-function getBeforeYesterdayDayNumber() {
-    const date = new Date()
-    date.setDate(date.getDate() - 2)
-    return date.getDate()
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
 }
 
 // main function for daily access
 function initializeDailyAccess() {
     const today_date = getTodayDate()
-    const today_day = getTodayDayNumber()
-    const last_access = localStorage.getItem('lastAccessDate')
-    const last_access_day = localStorage.getItem('lastAccessDay')
-    const before_yesterday = getBeforeYesterdayDayNumber()
+    const last_access_date = localStorage.getItem('lastAccessDate')
+    const yesterday_date = getYesterdayDate()
 
-    if (last_access != today_date) {
+    verifyStreak(last_access_date, today_date, yesterday_date)
+
+    if (last_access_date != today_date) {
         localStorage.setItem('lastAccessDate', today_date)
         localStorage.setItem('attempts_today', attempts_today)
         localStorage.setItem('firstTodayHit', 'true')
     }
 
-    verifyStreak(streak, last_access_day, before_yesterday)
-
-    if (last_access_day != today_day) {
-        localStorage.setItem('lastAccessDay', today_day)
-    }
-
     return {
         today_date,
-        last_access_day
+        last_access_date
     }
 }
 
@@ -80,7 +76,7 @@ if (result && result.textContent.trim() === 'Correct') {
     result.style.display = 'block'
     result.style.backgroundColor = '#268726ff';
     if (localStorage.getItem('firstTodayHit') == 'true' && selected_date == dates.today_date) {
-        streak = Number(++streak)
+        streak++
         localStorage.setItem('streak', streak)
     }
     localStorage.setItem('firstTodayHit', 'false')
@@ -90,16 +86,16 @@ if (result && result.textContent.trim() === 'Correct') {
     result.style.display = 'block'
     result.style.backgroundColor = '#FF2020';
 
-    if(localStorage.getItem('firstTodayHit') == 'true' && selected_date == dates.today_date) {
-        Number(++attempts_today)
+    if (localStorage.getItem('firstTodayHit') == 'true' && selected_date == dates.today_date) {
+        attempts_today++
         localStorage.setItem('attempts_today', attempts_today)
     }
 }
 
-setBestStreak(best_streak, streak)
-best_streak = localStorage.getItem('best_streak')
+setBestStreak()
 
+// DOM 
 streak_DOM.innerHTML = streak + ' days'
-best_streak_DOM.innerHTML = best_streak + ' days' 
+best_streak_DOM.innerHTML = best_streak + ' days'
 attemps_DOM.innerHTML = attempts_today + ' attemps'
 
