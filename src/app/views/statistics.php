@@ -7,11 +7,11 @@
         </div>
         <div class="card">
             <p>🏆</p>
-            <p>Best Streak</p>
+            <p id="best_streak">Best Streak</p>
         </div>
         <div class="card">
             <p>🎯</p>
-            <p>Attempts today</p>
+            <p id="attemps">Attempts today</p>
         </div>
         <div class="card">
             <p>🌍</p>
