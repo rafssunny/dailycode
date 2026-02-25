@@ -6,6 +6,15 @@ let streak = localStorage.getItem('streak')
 const streak_DOM = document.getElementById('streak')
 let selected_date = document.getElementById('dates').value
 
+// streak functions
+function verifyStreak(streak, last_access_day, before_yesterday) {
+    // if streak dont exists, start in 0
+    if (streak == null || Number(last_access_day) == before_yesterday) {
+        streak = 0
+        localStorage.setItem('streak', streak)
+    }
+}
+
 // dates functions 
 function getTodayDate() {
     return new Date().toISOString().split("T")[0]
@@ -28,11 +37,14 @@ function initializeDailyAccess() {
     const today_day = getTodayDayNumber()
     const last_access = localStorage.getItem('lastAccessDate')
     const last_access_day = localStorage.getItem('lastAccessDay')
+    const before_yesterday = getBeforeYesterdayDayNumber()
 
     if (last_access != today_date) {
         localStorage.setItem('lastAccessDate', today_date)
         localStorage.setItem('firstTodayHit', 'true')
     }
+
+    verifyStreak(streak, last_access_day, before_yesterday)
 
     if (last_access_day != today_day) {
         localStorage.setItem('lastAccessDay', today_day)
@@ -46,14 +58,6 @@ function initializeDailyAccess() {
 
 // start daily access logic
 const dates = initializeDailyAccess()
-const before_yesterday = getBeforeYesterdayDayNumber()
-
-// if streak dont exists, start in 0
-if (streak == null || Number(dates.last_access_day)-2 == before_yesterday) {
-    streak = 0
-    localStorage.setItem('streak', streak)
-}
-
 streak_DOM.innerHTML = streak + ' days'
 
 // update page after submit
