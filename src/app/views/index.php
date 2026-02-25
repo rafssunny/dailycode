@@ -13,7 +13,10 @@
 <body>
     <header>
         <nav>
-            <h1>Daily code</h1>
+            <div class="logo-container">
+                <img src="imgs/logo.png" alt="">
+                <h1>Daily code</h1>
+            </div>
             <div class="mobile-menu">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -65,7 +68,7 @@
     <hr>
     <?php include_once __DIR__ . "/../views/statistics.php"; ?>
     <hr>
-    <?php include_once __DIR__ . "/../views/credits.php";?>
+    <?php include_once __DIR__ . "/../views/credits.php"; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js" defer></script>

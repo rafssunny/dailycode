@@ -4,18 +4,20 @@
         <div class="card">
             <p>🔥</p>
             <p id="streak"></p>
+            <p class="note">Your Streak</p>
         </div>
         <div class="card">
             <p>🏆</p>
-            <p id="best_streak">Best Streak</p>
+            <p id="best_streak"></p>
+            <p class="note">Your best streak</p>
         </div>
         <div class="card">
             <p>🎯</p>
-            <p id="attemps">Attempts today</p>
+            <p id="attemps"></p>
+            <p class="note">Your attempts today</p>
         </div>
         <div class="card">
             <p>🌍</p>
-            <p>Global average of attempts today</p>
         </div>
     </div>
 </section>

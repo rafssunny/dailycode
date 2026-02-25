@@ -46,6 +46,10 @@ header {
     backdrop-filter: blur(10px);
 }
 
+header img {
+    width: 100px;
+}
+
 header hr{
     margin-top: 20px;
 }
@@ -73,6 +77,12 @@ a {
     color: white;
     text-decoration: none;
     transition: 0.3s;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
 }
 
 a:hover {
@@ -320,6 +330,11 @@ section img {
 
 .card:hover {
     transform: translateY(-10px);
+}
+
+.container-statistics .note {
+    font-size: 0.8rem;
+    font-style: italic;
 }
 
 .container-credits {
