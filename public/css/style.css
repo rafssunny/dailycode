@@ -46,6 +46,10 @@ header {
     backdrop-filter: blur(10px);
 }
 
+header img {
+    width: 100px;
+}
+
 header hr{
     margin-top: 20px;
 }

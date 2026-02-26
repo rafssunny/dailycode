@@ -13,7 +13,10 @@
 <body>
     <header>
         <nav>
-            <h1>Daily code</h1>
+            <div class="logo-container">
+                <img src="imgs/logo.png" alt="">
+                <h1>Daily code</h1>
+            </div>
             <div class="mobile-menu">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -58,8 +61,6 @@
                     <?php endforeach; ?>
                 </select>
                 <input type="text" name="output" id="output" placeholder="output..." required>
-                <input type="hidden" id="attempts" name="attempts">
-                <input type="hidden" id="first_today_hit" name="first_today_hit">
                 <button type="submit" class="button">Ok</button>
             </div>
         </form>

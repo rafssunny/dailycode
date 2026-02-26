@@ -4,7 +4,7 @@ namespace Rafa\Dailycode\services;
 use PDO;
 class DailyCodeService
 {
-    public function __construct(private object $dates, private object $codes, private PDO $connection, private object $languages, private object $options, private object $statistics)
+    public function __construct(private object $dates, private object $codes, private PDO $connection, private object $languages, private object $options)
     {
     }
     public function OrganizeViewValues(string $input, array $available_dates)
@@ -36,16 +36,5 @@ class DailyCodeService
             'options' => $options
         ];
         return $view_values;
-    }
-    public function UpdateStatistics()
-    {
-        if (!isset($_GET['attempts'], $_GET['first_today_hit'])) {
-            return;
-        }
-
-        $attempts = (int) $_GET['attempts'];
-        $first_today_hit = $_GET['first_today_hit'];
-
-        $this->statistics->process($this->connection, $first_today_hit, $attempts);
     }
 }

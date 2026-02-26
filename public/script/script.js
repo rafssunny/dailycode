@@ -99,6 +99,3 @@ streak_DOM.innerHTML = streak + ' days'
 best_streak_DOM.innerHTML = best_streak + ' days'
 attemps_DOM.innerHTML = attempts_today + ' attemps'
 
-// for php
-document.getElementById('attempts').value = attempts_today
-document.getElementById('first_today_hit').value = localStorage.getItem('firstTodayHit')
