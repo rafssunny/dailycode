@@ -57,6 +57,8 @@
                         </option>
                     <?php endforeach; ?>
                 </select>
+        </form>
+        <form action="#home" method="post">
                 <input type="text" name="output" id="output" placeholder="output..." required>
                 <button type="submit" class="button">Ok</button>
             </div>

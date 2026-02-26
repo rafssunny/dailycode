@@ -9,7 +9,7 @@ const best_streak_DOM = document.getElementById('best_streak')
 let selected_date = document.getElementById('dates').value
 
 let attempts_today = Number(localStorage.getItem('attempts_today')) || 0
-const attemps_DOM = document.getElementById('attemps')
+const attempts_DOM = document.getElementById('attempts')
 
 // streak functions
 function verifyStreak(last_access_date, today_date, yesterday_date) {
@@ -97,5 +97,5 @@ setBestStreak()
 // DOM 
 streak_DOM.innerHTML = streak + ' days'
 best_streak_DOM.innerHTML = best_streak + ' days'
-attemps_DOM.innerHTML = attempts_today + ' attemps'
+attempts_DOM.innerHTML = attempts_today + ' attempts'
 

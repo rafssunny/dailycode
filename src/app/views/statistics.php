@@ -13,11 +13,15 @@
         </div>
         <div class="card">
             <p>🎯</p>
-            <p id="attemps"></p>
+            <p id="attempts"></p>
             <p class="note">Your attempts today</p>
         </div>
         <div class="card">
             <p>🌍</p>
+            <p><?= $global_attempts_today->attempts ?> attempts</p>
+            <p class="note">Global attempts today</p>
+            <p><?= $global_hits_today->hits ?> hits</p>
+            <p class="note">Global hits today</p>
         </div>
     </div>
 </section>
