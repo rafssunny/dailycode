@@ -13,10 +13,7 @@
 <body>
     <header>
         <nav>
-            <div class="logo-container">
-                <img src="imgs/logo.png" alt="">
-                <h1>Daily code</h1>
-            </div>
+            <h1>Daily code</h1>
             <div class="mobile-menu">
                 <div class="line1"></div>
                 <div class="line2"></div>
