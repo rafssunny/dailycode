@@ -99,7 +99,7 @@ best_streak_DOM.innerHTML = best_streak + ' days'
 attempts_DOM.innerHTML = attempts_today + ' attempts'
 
 // check if person got it right today challenge
-if (localStorage.getItem('firstTodayHit') == 'false') {
+if (localStorage.getItem('firstTodayHit') == 'false' && selected_date == dates.today_date) {
     warning.style.display = 'block'
 }
 
