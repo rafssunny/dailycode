@@ -1,4 +1,5 @@
 const select = document.getElementById('dates')
+const filter = document.getElementById('filter')
 const form = document.getElementById('form')
 const result = document.querySelector('.result')
 
@@ -33,7 +34,7 @@ function getTodayDate() {
 }
 
 function getYesterdayDate() {
-    const date = new Date(); 
+    const date = new Date();
     date.setDate(date.getDate() - 1);
 
     const year = date.getFullYear();
@@ -99,3 +100,15 @@ streak_DOM.innerHTML = streak + ' days'
 best_streak_DOM.innerHTML = best_streak + ' days'
 attempts_DOM.innerHTML = attempts_today + ' attempts'
 
+// for menu
+function showOptions() {
+    if (select.style.display == 'none') {
+        select.style.display = 'block'
+        filter.style.display = 'block'
+        document.getElementById('options').innerText = '❌ close'
+    } else {
+        select.style.display = 'none'
+        filter.style.display = 'none'
+        document.getElementById('options').innerText = '⚙️ see options'
+    }
+}

@@ -28,27 +28,37 @@
         </nav>
     </header>
     <main id="home">
-        <form action="#home" method="get" id="form">
-            <h2>What will be the output?</h2>
-            <div class="container-terminal">
-                <div class="terminal">
-                    <div class="mac">
-                        <div class="mac-buttons">
-                            <span class="red"></span>
-                            <span class="yellow"></span>
-                            <span class="green"></span>
-                        </div>
-                        <img src="imgs/icons/<?= $language_values['icon'] ?>" alt="language icon" class="language-icon">
+        <h2>What will be the output?</h2>
+        <div class="container-terminal">
+            <div class="terminal">
+                <div class="mac">
+                    <div class="mac-buttons">
+                        <span class="red"></span>
+                        <span class="yellow"></span>
+                        <span class="green"></span>
                     </div>
-                    <div class="code">
-                        <pre><code class=<?= $language_values['formatting'] ?>><?= htmlspecialchars($code) ?></code></pre>
-                    </div>
+                    <img src="imgs/icons/<?= $language_values['icon'] ?>" alt="language icon" class="language-icon">
+                </div>
+                <div class="code">
+                    <pre><code class=<?= $language_values['formatting'] ?>><?= htmlspecialchars($code) ?></code></pre>
                 </div>
             </div>
-            <div class="result">
-                <p><?= $result ?></p>
-            </div>
+        </div>
+        <div class="result">
+            <p><?= $result ?></p>
+        </div>
+        <form action="#home" method="post">
             <div class="container-output">
+                <input type="text" name="output" id="output" placeholder="output..." required>
+                <button type="submit" class="button">Ok</button>
+            </div>
+        </form>
+        <form action="#home" method="get" id="form">
+            <div class="container-output">
+                <select name="filter" id="filter">
+                    <option value="dates">Filter by dates</option>
+                    <option value="language">Filter by language</option>
+                </select>
                 <select name="dates" id="dates">
                     <?php foreach ($options as $option): ?>
                         <option value="<?= $option['date'] ?>" <?= $option['selected'] ? 'selected' : '' ?>>
@@ -57,13 +67,7 @@
                         </option>
                     <?php endforeach; ?>
                 </select>
-            </div>
-        </form>
-        
-        <form action="#home" method="post">
-            <div class="container-output">
-                <input type="text" name="output" id="output" placeholder="output..." required>
-                <button type="submit" class="button">Ok</button>
+                <button onclick="showOptions()" type="button" id="options">⚙️ see options</button>
             </div>
         </form>
     </main>

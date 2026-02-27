@@ -238,6 +238,7 @@ code[class*="language-"] {
 
 #dates,
 #output,
+#filter,
 .button {
     width: 100%;
     height: auto;
@@ -249,7 +250,8 @@ code[class*="language-"] {
     border-color: var(--main-green);
 }
 
-#dates {
+#dates, #filter {
+    display: none;
     max-width: 300px;
     margin: 0 30px;
     background-color: black;
@@ -262,6 +264,17 @@ code[class*="language-"] {
     color: white;
 }
 
+#options {
+    font-family: var(--main-font);
+    color: var(--main-green);
+    background-color: transparent;
+    border: none;
+}
+
+#options:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
 
 #output {
     max-width: 400px;
@@ -415,6 +428,7 @@ section img {
 
     #dates,
     #output,
+    #filter,
     .result {
         max-width: 200px;
         height: 40px;
