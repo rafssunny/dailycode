@@ -221,21 +221,41 @@ code[class*="language-"] {
     font-size: 12px;
 }
 
-.result {
-    width: 150PX;
-    margin: 0 auto;
-    padding: 5px;
-    border: 2px solid white;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    display: none;
+.toast {
+    position: fixed;
+
+    top: 90px;
+
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+
+    padding: 12px 20px;
+    border-radius: 10px;
+
+    font-family: var(--main-font);
+    font-size: 1rem;
+
+    color: white;
+    text-align: center;
+
+    opacity: 0;
+    transition: all 0.3s ease;
+
+    z-index: 2000;
+    pointer-events: none;
 }
 
-.result p {
-    color: white;
-    font-family: var(--main-font);
-    font-size: 1.5rem;
-    text-align: center;
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast.correct {
+    background-color: #22c55e;
+}
+
+.toast.incorrect {
+    background-color: #ef4444;
 }
 
 .container-output {

@@ -45,9 +45,6 @@
             </div>
         </div>
         <p class="warning">You've already completed today's challenge!</p>
-        <div class="result">
-            <p><?= $result ?></p>
-        </div>
         <form action="#home" method="post">
             <div class="container-output">
                 <input type="text" name="output" id="output" placeholder="output..." required>
@@ -76,8 +73,13 @@
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js" defer></script>
 
+    <script>
+        const serverResult = "<?= $result ?>";
+    </script>
     <script src="script/script.js" defer></script>
     <script src="script/mobile-navbar.js" defer></script>
+
+    <div id="toast" class="toast"></div>
 </body>
 
 </html>

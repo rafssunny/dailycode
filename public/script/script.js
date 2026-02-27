@@ -1,6 +1,5 @@
 const select = document.getElementById('dates')
 const form = document.getElementById('form')
-const result = document.querySelector('.result')
 const warning = document.querySelector('.warning')
 
 let streak = Number(localStorage.getItem('streak')) || 0
@@ -73,9 +72,9 @@ select.addEventListener("change", function () {
 })
 
 // put the correct on result or incorrect and update streak
-if (result && result.textContent.trim() === 'Correct') {
-    result.style.display = 'block'
-    result.style.backgroundColor = '#268726ff';
+
+if (serverResult === 'Correct') {
+    showToast('✔ Correct!', 'correct')
     if (localStorage.getItem('firstTodayHit') == 'true' && selected_date == dates.today_date) {
         streak++
         localStorage.setItem('streak', streak)
@@ -83,9 +82,8 @@ if (result && result.textContent.trim() === 'Correct') {
     localStorage.setItem('firstTodayHit', 'false')
 
 
-} else if (result && result.textContent.trim() == 'Incorrect') {
-    result.style.display = 'block'
-    result.style.backgroundColor = '#FF2020';
+} else if (serverResult === 'Incorrect') {
+    showToast('✖ Incorrect!', 'incorrect')
 
     if (localStorage.getItem('firstTodayHit') == 'true' && selected_date == dates.today_date) {
         attempts_today++
@@ -103,6 +101,18 @@ attempts_DOM.innerHTML = attempts_today + ' attempts'
 // check if person got it right today challenge
 if (localStorage.getItem('firstTodayHit') == 'false') {
     warning.style.display = 'block'
+}
+
+// for result notification
+function showToast(message, type) {
+    const toast = document.getElementById('toast')
+
+    toast.textContent = message
+    toast.className = 'toast show ' + type
+
+    setTimeout(() => {
+        toast.classList.remove('show')
+    }, 2000)
 }
 
 // for menu
