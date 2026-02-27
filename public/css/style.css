@@ -383,7 +383,6 @@ section img {
     border-radius: 20px;
     box-shadow: 0 0 25px rgba(26, 187, 26, 0.2);
     animation: fadeIn 1s ease-in-out;
-    margin-bottom: 5vh;
 }
 
 .container-credits p {
@@ -469,11 +468,14 @@ section img {
         top: 8vh;
         right: 0;
         width: 50vw;
-        height: 92vh;
+        height: auto;
         padding-left: 20px;
+        padding-bottom: 40px;
         background: #000000;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: flex-start;
+        gap: 20px;
+        padding-top: 40px;
         transform: translateX(100%);
         transition: transform 0.3s ease-in;
     }
