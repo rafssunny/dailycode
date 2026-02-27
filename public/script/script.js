@@ -1,5 +1,4 @@
 const select = document.getElementById('dates')
-const filter = document.getElementById('filter')
 const form = document.getElementById('form')
 const result = document.querySelector('.result')
 
@@ -104,11 +103,9 @@ attempts_DOM.innerHTML = attempts_today + ' attempts'
 function showOptions() {
     if (select.style.display == 'none') {
         select.style.display = 'block'
-        filter.style.display = 'block'
         document.getElementById('options').innerText = '❌ close'
     } else {
         select.style.display = 'none'
-        filter.style.display = 'none'
         document.getElementById('options').innerText = '⚙️ see options'
     }
 }

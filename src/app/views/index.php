@@ -55,10 +55,6 @@
         </form>
         <form action="#home" method="get" id="form">
             <div class="container-output">
-                <select name="filter" id="filter">
-                    <option value="dates">Filter by dates</option>
-                    <option value="language">Filter by language</option>
-                </select>
                 <select name="dates" id="dates">
                     <?php foreach ($options as $option): ?>
                         <option value="<?= $option['date'] ?>" <?= $option['selected'] ? 'selected' : '' ?>>

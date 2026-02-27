@@ -238,7 +238,6 @@ code[class*="language-"] {
 
 #dates,
 #output,
-#filter,
 .button {
     width: 100%;
     height: auto;
@@ -250,7 +249,7 @@ code[class*="language-"] {
     border-color: var(--main-green);
 }
 
-#dates, #filter {
+#dates{
     display: none;
     max-width: 300px;
     margin: 0 30px;
@@ -428,7 +427,6 @@ section img {
 
     #dates,
     #output,
-    #filter,
     .result {
         max-width: 200px;
         height: 40px;
