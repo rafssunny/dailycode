@@ -44,6 +44,7 @@
                 </div>
             </div>
         </div>
+        <p class="warning">You've already completed today's challenge!</p>
         <div class="result">
             <p><?= $result ?></p>
         </div>

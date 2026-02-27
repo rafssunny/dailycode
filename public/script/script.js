@@ -1,6 +1,7 @@
 const select = document.getElementById('dates')
 const form = document.getElementById('form')
 const result = document.querySelector('.result')
+const warning = document.querySelector('.warning')
 
 let streak = Number(localStorage.getItem('streak')) || 0
 let best_streak = Number(localStorage.getItem('best_streak')) || 0
@@ -99,9 +100,16 @@ streak_DOM.innerHTML = streak + ' days'
 best_streak_DOM.innerHTML = best_streak + ' days'
 attempts_DOM.innerHTML = attempts_today + ' attempts'
 
+// check if person got it right today challenge
+if (localStorage.getItem('firstTodayHit') == 'false') {
+    warning.style.display = 'block'
+}
+
 // for menu
 function showOptions() {
-    if (select.style.display == 'none') {
+    const currentDisplay = window.getComputedStyle(select).display
+
+    if (currentDisplay == 'none') {
         select.style.display = 'block'
         document.getElementById('options').innerText = '❌ close'
     } else {
