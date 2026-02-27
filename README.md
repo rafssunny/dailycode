@@ -3,4 +3,5 @@
 The site was inspired by Wordle and Termo.
 
 
-<img width="1366" height="768" alt="print_2026-02-05_07-12-22" src="https://github.com/user-attachments/assets/c577dfac-6cee-4c9c-bfcb-ad733015b220" />
+
+<img width="1330" height="593" alt="print_2026-02-27_18-36-29" src="https://github.com/user-attachments/assets/4053c48d-8507-42d1-a07b-94c66c2f39fc" />
