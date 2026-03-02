@@ -27,6 +27,17 @@ function setBestStreak() {
     }
 }
 
+function updateStreak() {
+    streak++
+    localStorage.setItem('streak', streak)
+}
+
+// attempts functions
+function updateAttempts() {
+    attempts_today++
+    localStorage.setItem('attempts_today', attempts_today)
+}
+
 // dates functions 
 function getTodayDate() {
     return new Date().toISOString().split("T")[0]
@@ -42,6 +53,7 @@ function getYesterdayDate() {
 
     return `${year}-${month}-${day}`;
 }
+
 
 // main function for daily access
 function initializeDailyAccess() {
@@ -77,8 +89,8 @@ if (serverResult === 'Correct') {
     showToast('✔ Correct!', 'correct')
     if (selected_date == dates.today_date) {
         if (localStorage.getItem('firstTodayHit') == 'true' && selected_date == dates.today_date) {
-            streak++
-            localStorage.setItem('streak', streak)
+            updateStreak()
+            updateAttempts()
             localStorage.setItem('warning_display', 'block')
         }
         localStorage.setItem('firstTodayHit', 'false')
@@ -90,8 +102,7 @@ if (serverResult === 'Incorrect') {
     showToast('✖ Incorrect!', 'incorrect')
 
     if (localStorage.getItem('firstTodayHit') == 'true' && selected_date == dates.today_date) {
-        attempts_today++
-        localStorage.setItem('attempts_today', attempts_today)
+        updateAttempts()
     }
 }
 
