@@ -74,7 +74,7 @@
     <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js" defer></script>
 
     <script>
-        const serverResult = "<?= $result ?>";
+        let serverResult = "<?= $result ?>";
     </script>
     <script src="script/script.js" defer></script>
     <script src="script/mobile-navbar.js" defer></script>

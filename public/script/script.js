@@ -1,6 +1,6 @@
 const select = document.getElementById('dates')
 const form = document.getElementById('form')
-const warning = document.querySelector('.warning')
+let warning = document.querySelector('.warning')
 
 let streak = Number(localStorage.getItem('streak')) || 0
 let best_streak = Number(localStorage.getItem('best_streak')) || 0
@@ -55,6 +55,7 @@ function initializeDailyAccess() {
         localStorage.setItem('lastAccessDate', today_date)
         localStorage.setItem('attempts_today', attempts_today)
         localStorage.setItem('firstTodayHit', 'true')
+        localStorage.setItem('warning_display', 'none')
     }
 
     return {
@@ -72,17 +73,20 @@ select.addEventListener("change", function () {
 })
 
 // put the correct on result or incorrect and update streak
-
 if (serverResult === 'Correct') {
     showToast('✔ Correct!', 'correct')
-    if (localStorage.getItem('firstTodayHit') == 'true' && selected_date == dates.today_date) {
-        streak++
-        localStorage.setItem('streak', streak)
+    if (selected_date == dates.today_date) {
+        if (localStorage.getItem('firstTodayHit') == 'true' && selected_date == dates.today_date) {
+            streak++
+            localStorage.setItem('streak', streak)
+            localStorage.setItem('warning_display', 'block')
+        }
+        localStorage.setItem('firstTodayHit', 'false')
+    } else {
+        serverResult = '';
     }
-    localStorage.setItem('firstTodayHit', 'false')
-
-
-} else if (serverResult === 'Incorrect') {
+}
+if (serverResult === 'Incorrect') {
     showToast('✖ Incorrect!', 'incorrect')
 
     if (localStorage.getItem('firstTodayHit') == 'true' && selected_date == dates.today_date) {
@@ -97,10 +101,8 @@ setBestStreak()
 streak_DOM.innerHTML = streak + ' days'
 best_streak_DOM.innerHTML = best_streak + ' days'
 attempts_DOM.innerHTML = attempts_today + ' attempts'
-
-// check if person got it right today challenge
-if (localStorage.getItem('firstTodayHit') == 'false' && selected_date == dates.today_date) {
-    warning.style.display = 'block'
+if (selected_date == dates.today_date) {
+    warning.style.display = localStorage.getItem('warning_display')
 }
 
 // for result notification
