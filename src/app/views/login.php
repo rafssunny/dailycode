@@ -35,7 +35,7 @@
 <div id="toast" class="toast"></div>
 
 <script>
-    let js_warning = "<?= isset($js_warning) ? $js_warning : '' ?>" 
+    let js_warning = "<?= $js_warning ?? '' ?>" 
 </script>
 <script src="../global/script.js"></script>
 <script src="script/admin.js"></script>
