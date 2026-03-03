@@ -5,10 +5,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (
         isset($_POST['username'], $_POST['password']) &&
         $_POST['username'] === 'admin' &&
-        $_POST['password'] === 'test'
+        $_POST['password'] === '123'
     ) {
         $_SESSION['admin'] = true;
-        header('Location: painel.php');
+        header('Location: dashboard.php');
         exit;
     } else {
         $js_warning = 'false';
