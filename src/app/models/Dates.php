@@ -6,6 +6,13 @@ use PDO;
 
 class Dates
 {
+    public function getAllValues(PDO $connection): array
+    {
+        $query = $connection->query('SELECT * FROM dates;');
+        $query_array = $query->fetchAll();
+        rsort($query_array);
+        return $query_array;
+    }
     public function findDateValues(string $input, PDO $connection): array
     {
         $query = $connection->prepare('SELECT * FROM dates 

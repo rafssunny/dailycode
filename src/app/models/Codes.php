@@ -5,6 +5,13 @@ use PDO;
 
 class Codes
 {
+    public function getAllValues(PDO $connection): array
+    {
+        $query = $connection->query('SELECT * FROM codes;');
+        $query_array = $query->fetchAll();
+        rsort($query_array);
+        return $query_array;
+    }
     public function getValues(PDO $connection): array
     {
         $query = $connection->query('SELECT * FROM dates 

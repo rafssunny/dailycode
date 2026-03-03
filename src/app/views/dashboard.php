@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
+
 <body>
     <div class="dashboard">
         <div class="dashboard-header">
@@ -28,13 +30,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>JavaScript</td>
-                        <td><span class="code-badge">console.log("ok")</span></td>
-                        <td>"ok"</td>
-                        <td>2025-02-18</td>
-                    </tr>
+                    <?php foreach ($codes_values as $value): ?>
+                        <tr>
+                            <td><?= $value['id'] ?></td>
+                            <td><?= $value['language'] ?></td>
+                            <td><span class="code-badge"><?= htmlspecialchars($value['code']) ?></span></td>
+                            <td><?= $value['output'] ?></td>
+                            <td><?= $value['date'] ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
 
@@ -105,6 +109,7 @@
             <pre>
 
             </pre>
-    </div>
+        </div>
 </body>
+
 </html>

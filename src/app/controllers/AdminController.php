@@ -2,12 +2,23 @@
 namespace Rafa\Dailycode\controllers;
 
 use Rafa\Dailycode\models\Codes;
-
+use PDO;
+use Rafa\Dailycode\models\Database;
+use Rafa\Dailycode\models\Dates;
 class AdminController
 {
     private Codes $codes;
+    private Dates $dates;
+    private PDO $connection;
     private int $rate_limit = 3;
 
+    public function __construct()
+    {
+        $database = new Database();
+        $this->connection = $database->connectDataBase();
+        $this->codes = new Codes();
+        $this->dates = new Dates();
+    }
     public function index()
     {
         if (!isset($_SESSION['rate'])) {
@@ -43,6 +54,8 @@ class AdminController
             exit;
         }
 
+        $codes_values = $this->codes->getAllValues($this->connection);
+        $dates_values = $this->dates->getAllValues($this->connection);
         require_once __DIR__ . '/../views/dashboard.php';
     }
 }
