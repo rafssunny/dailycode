@@ -116,18 +116,6 @@ if (selected_date == dates.today_date) {
     warning.style.display = localStorage.getItem('warning_display')
 }
 
-// for result notification
-function showToast(message, type) {
-    const toast = document.getElementById('toast')
-
-    toast.textContent = message
-    toast.className = 'toast show ' + type
-
-    setTimeout(() => {
-        toast.classList.remove('show')
-    }, 2000)
-}
-
 // for menu
 function showOptions() {
     const currentDisplay = window.getComputedStyle(select).display

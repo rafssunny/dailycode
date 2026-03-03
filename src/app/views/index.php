@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DailyCode</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../global/style.css">
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
 </head>
@@ -76,6 +77,7 @@
     <script>
         let serverResult = "<?= $result ?>";
     </script>
+    <script src="../global/script.js"></script>
     <script src="script/script.js" defer></script>
     <script src="script/mobile-navbar.js" defer></script>
 
