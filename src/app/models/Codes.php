@@ -7,9 +7,9 @@ class Codes
 {
     public function getAllValues(PDO $connection): array
     {
-        $query = $connection->query('SELECT * FROM codes;');
+        $query = $connection->query('SELECT * FROM codes ORDER BY date DESC;');
         $query_array = $query->fetchAll();
-        rsort($query_array);
+        $query_array;
         return $query_array;
     }
     public function getValues(PDO $connection): array

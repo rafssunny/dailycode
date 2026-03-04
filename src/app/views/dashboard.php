@@ -42,7 +42,8 @@
                             <td><?= $value['date'] ?></td>
                             <td>
                                 <form action="" method="POST">
-                                    <button type="submit" name="delete_id_codes" value="<?= $value['id'] ?>">🗑️</button>
+                                    <button type="submit" name="delete_id_codes" value="<?= $value['id'] ?>"
+                                        onclick="return confirm('Are you sure?')">🗑️</button>
                                     <button type="submit" name="edit_id_codes" value="<?= $value['id'] ?>">✏️</button>
                                 </form>
                             </td>
@@ -97,7 +98,8 @@
                             <td><?= $value['code_id'] ?></td>
                             <td>
                                 <form action="" method="POST">
-                                    <button type="submit" name="delete_id_dates" value="<?= $value['id'] ?>">🗑️</button>
+                                    <button type="submit" name="delete_id_dates" value="<?= $value['id'] ?>"
+                                        onclick="return confirm('Are you sure?')">🗑️</button>
                                     <button type="submit" name="edit_id_dates" value="<?= $value['id'] ?>">✏️</button>
                                 </form>
                             </td>
@@ -117,7 +119,7 @@
                         <input name="code_id" class="dark-input" type="text" placeholder="code_id..." required>
                     </div>
                     <div style="flex: 2; min-width: 20px;"></div>
-                    <button class="btn-add" type="submit" name="insert_id_codes">
+                    <button class="btn-add" type="submit" name="insert_id_dates">
                         ADD VALUE
                     </button>
                 </form>
