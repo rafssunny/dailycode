@@ -146,5 +146,6 @@
 </script>
 <script src="../global/script.js"></script>
 <script src="script/admin.js"></script>
+<script src="script/dashboard.js"></script>
 
 </html>
