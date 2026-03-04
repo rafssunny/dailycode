@@ -42,7 +42,7 @@ body {
 
 .data-table {
     width: 100%;
-    min-width: 650px; 
+    min-width: 650px;
     border-collapse: collapse;
     background: #0a0a0a;
     border: 1px solid #1f1f1f;
@@ -68,6 +68,31 @@ body {
 
 .data-table tr:last-child td {
     border-bottom: none;
+}
+
+.data-table td:last-child {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.data-table td:last-child form {
+    margin: 0;
+}
+
+.data-table td:last-child button {
+    background: #1a1a1a;
+    border: 1px solid #2f2f2f;
+    color: #ffffff;
+    padding: 0.4rem 0.7rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.data-table td:last-child button:hover {
+    background: #2a2a2a;
+    border-color: #444;
 }
 
 .code-badge {

@@ -41,8 +41,10 @@
                             <td><?= $value['date'] ?></td>
                             <td>
                                 <form action="" method="delete">
-                                    <button type="submit" name="id" value="<?=$value['id']?>">🗑️</button>
-                                    <button type="submit" name="id" value="<?=$value['id']?>">✏️</button>
+                                    <button type="submit" name="id" value="<?= $value['id'] ?>">🗑️</button>
+                                </form>
+                                <form action="" method="put">
+                                    <button type="submit" name="id" value="<?= $value['id'] ?>">✏️</button>
                                 </form>
                             </td>
                         </tr>
@@ -82,6 +84,7 @@
                         <th>id</th>
                         <th>date</th>
                         <th>code_id</th>
+                        <th>ACTIONS</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -90,6 +93,14 @@
                             <td><?= $value['id'] ?></td>
                             <td><?= $value['date'] ?></td>
                             <td><?= $value['code_id'] ?></td>
+                            <td>
+                                <form action="" method="delete">
+                                    <button type="submit" name="id" value="<?= $value['id'] ?>">🗑️</button>
+                                </form>
+                                <form action="" method="put">
+                                    <button type="submit" name="id" value="<?= $value['id'] ?>">✏️</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     </tr>
