@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="../global/style.css">
     <link rel="shortcut icon" href="../public/imgs/favicon.ico" type="image/x-icon">
 </head>
 
@@ -40,11 +41,9 @@
                             <td><?= $value['output'] ?></td>
                             <td><?= $value['date'] ?></td>
                             <td>
-                                <form action="" method="delete">
-                                    <button type="submit" name="id" value="<?= $value['id'] ?>">🗑️</button>
-                                </form>
-                                <form action="" method="put">
-                                    <button type="submit" name="id" value="<?= $value['id'] ?>">✏️</button>
+                                <form action="" method="POST">
+                                    <button type="submit" name="delete_id_codes" value="<?= $value['id'] ?>">🗑️</button>
+                                    <button type="submit" name="edit_id_codes" value="<?= $value['id'] ?>">✏️</button>
                                 </form>
                             </td>
                         </tr>
@@ -94,11 +93,9 @@
                             <td><?= $value['date'] ?></td>
                             <td><?= $value['code_id'] ?></td>
                             <td>
-                                <form action="" method="delete">
-                                    <button type="submit" name="id" value="<?= $value['id'] ?>">🗑️</button>
-                                </form>
-                                <form action="" method="put">
-                                    <button type="submit" name="id" value="<?= $value['id'] ?>">✏️</button>
+                                <form action="" method="POST">
+                                    <button type="submit" name="delete_id_dates" value="<?= $value['id'] ?>">🗑️</button>
+                                    <button type="submit" name="edit_id_dates" value="<?= $value['id'] ?>">✏️</button>
                                 </form>
                             </td>
                         </tr>
@@ -129,9 +126,18 @@
                 <i>⚠️</i> ERROR LOG
             </h3>
             <pre>
-
+                <?= $error ?? '' ?>
             </pre>
         </div>
+
 </body>
+
+<div id="toast" class="toast"></div>
+
+<script>
+    let js_warning = "<?= $js_warning ?? '' ?>" 
+</script>
+<script src="../global/script.js"></script>
+<script src="script/admin.js"></script>
 
 </html>

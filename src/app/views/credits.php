@@ -9,11 +9,12 @@
                 continue to update it frequently and add new challenges and features. If you want to send me any
                 suggestions
                 or criticism, contact me on one of my social media channels. I hope you enjoy the website!</p>
-                <hr>
+            <hr>
             <div class="social">
-                <a href="https://x.com/rafssunny" target="_blank" rel="external"><img src="imgs/social/x.jpg" alt=""></a>
-                <a href="https://github.com/rafssunny" target="_blank" rel="external"><img src="imgs/social/github.png" alt=""
-                        style="background-color:white;"></a>
+                <a href="https://x.com/rafssunny" target="_blank" rel="external"><img src="imgs/social/x.jpg"
+                        alt=""></a>
+                <a href="https://github.com/rafssunny" target="_blank" rel="external"><img src="imgs/social/github.png"
+                        alt="" style="background-color:white;"></a>
                 <a href="https://www.reddit.com/user/rafssunny/" target="_blank" rel="external"><img
                         src="imgs/social/reddit.png" alt="" srcset=""></a>
             </div>

@@ -5,10 +5,12 @@ use Rafa\Dailycode\models\Codes;
 use PDO;
 use Rafa\Dailycode\models\Database;
 use Rafa\Dailycode\models\Dates;
+use Rafa\Dailycode\services\AdminService;
 class AdminController
 {
     private Codes $codes;
     private Dates $dates;
+    private AdminService $admin_service;
     private PDO $connection;
     private int $rate_limit = 3;
 
@@ -18,6 +20,7 @@ class AdminController
         $this->connection = $database->connectDataBase();
         $this->codes = new Codes();
         $this->dates = new Dates();
+        $this->admin_service = new AdminService();
     }
     public function index()
     {
@@ -54,8 +57,15 @@ class AdminController
             exit;
         }
 
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $js_warning = $this->admin_service->delete($this->connection);
+        }
+        
         $code_values = $this->codes->getAllValues($this->connection);
         $date_values = $this->dates->getAllValues($this->connection);
+        $error = $this->admin_service->error;
+        
+        
         require_once __DIR__ . '/../views/dashboard.php';
     }
 }
