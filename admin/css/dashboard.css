@@ -111,6 +111,14 @@ body {
     margin-top: 1.5rem;
 }
 
+.add-panel form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+    width: 100%;
+}
+
 .input-group {
     flex: 1 1 180px;
 }

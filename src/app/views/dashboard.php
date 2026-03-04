@@ -52,25 +52,28 @@
             </table>
 
             <div class="add-panel">
-                <div class="input-group">
-                    <label>LANGUAGE</label>
-                    <input class="dark-input" type="text" placeholder="ex: Python" required>
-                </div>
-                <div class="input-group">
-                    <label>CODE</label>
-                    <input class="dark-input" type="text" placeholder="code..." required>
-                </div>
-                <div class="input-group">
-                    <label>OUTPUT</label>
-                    <input class="dark-input" type="text" placeholder="output..." required>
-                </div>
-                <div class="input-group">
-                    <label>DATE</label>
-                    <input class="dark-input" type="text" placeholder="yyyy-mm-dd" required>
-                </div>
-                <button class="btn-add" aria-label="Adicionar código">
-                    ADD VALUE
-                </button>
+                <form action="" method="POST">
+                    <div class="input-group">
+                        <label>LANGUAGE</label>
+                        <input name="language" class="dark-input" type="text" placeholder="ex: Python" required>
+                    </div>
+                    <div class="input-group">
+                        <label>CODE</label>
+                        <textarea name="code" class="dark-input" rows="1" cols="30" placeholder="code..."
+                            required></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label>OUTPUT</label>
+                        <input name="output" class="dark-input" type="text" placeholder="output..." required>
+                    </div>
+                    <div class="input-group">
+                        <label>DATE</label>
+                        <input name="date_codes" class="dark-input" type="text" placeholder="yyyy-mm-dd" required>
+                    </div>
+                    <button class="btn-add" type="submit" name="insert_id_codes">
+                        ADD VALUE
+                    </button>
+                </form>
             </div>
         </section>
 
@@ -104,18 +107,20 @@
             </table>
 
             <div class="add-panel">
-                <div class="input-group">
-                    <label>DATE</label>
-                    <input class="dark-input" type="text" placeholder="yyyy-mm-dd" required>
-                </div>
-                <div class="input-group">
-                    <label>CODE_ID</label>
-                    <input class="dark-input" type="text" placeholder="code_id..." required>
-                </div>
-                <div style="flex: 2; min-width: 20px;"></div>
-                <button class="btn-add" aria-label="Adicionar data">
-                    ADD VALUE
-                </button>
+                <form action="" method="POST">
+                    <div class="input-group">
+                        <label>DATE</label>
+                        <input name="date_dates" class="dark-input" type="text" placeholder="yyyy-mm-dd" required>
+                    </div>
+                    <div class="input-group">
+                        <label>CODE_ID</label>
+                        <input name="code_id" class="dark-input" type="text" placeholder="code_id..." required>
+                    </div>
+                    <div style="flex: 2; min-width: 20px;"></div>
+                    <button class="btn-add" type="submit" name="insert_id_codes">
+                        ADD VALUE
+                    </button>
+                </form>
             </div>
         </section>
 

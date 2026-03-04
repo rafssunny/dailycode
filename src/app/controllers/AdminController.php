@@ -20,7 +20,7 @@ class AdminController
         $this->connection = $database->connectDataBase();
         $this->codes = new Codes();
         $this->dates = new Dates();
-        $this->admin_service = new AdminService();
+        $this->admin_service = new AdminService($this->connection);
     }
     public function index()
     {
@@ -58,14 +58,17 @@ class AdminController
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $js_warning = $this->admin_service->delete($this->connection);
+            $js_warning = $this->admin_service->delete();
+            if ($js_warning == null) {
+                $js_warning = $this->admin_service->insert();
+            }
         }
-        
+
         $code_values = $this->codes->getAllValues($this->connection);
         $date_values = $this->dates->getAllValues($this->connection);
         $error = $this->admin_service->error;
-        
-        
+
+
         require_once __DIR__ . '/../views/dashboard.php';
     }
 }
