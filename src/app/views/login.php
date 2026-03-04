@@ -7,6 +7,7 @@
     <title>Admin</title>
     <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="../global/style.css">
+    <link rel="shortcut icon" href="../public/imgs/favicon.ico" type="image/x-icon">
 </head>
 
 <body>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="shortcut icon" href="../public/imgs/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -27,16 +28,23 @@
                         <th>code</th>
                         <th>output</th>
                         <th>date</th>
+                        <th>ACTIONS</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($codes_values as $value): ?>
+                    <?php foreach ($code_values as $value): ?>
                         <tr>
                             <td><?= $value['id'] ?></td>
                             <td><?= $value['language'] ?></td>
                             <td><span class="code-badge"><?= htmlspecialchars($value['code']) ?></span></td>
                             <td><?= $value['output'] ?></td>
                             <td><?= $value['date'] ?></td>
+                            <td>
+                                <form action="" method="delete">
+                                    <button type="submit" name="id" value="<?=$value['id']?>">🗑️</button>
+                                    <button type="submit" name="id" value="<?=$value['id']?>">✏️</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -77,10 +85,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>2025-02-18</td>
-                        <td>1</td>
+                    <?php foreach ($date_values as $value): ?>
+                        <tr>
+                            <td><?= $value['id'] ?></td>
+                            <td><?= $value['date'] ?></td>
+                            <td><?= $value['code_id'] ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                     </tr>
             </table>
 

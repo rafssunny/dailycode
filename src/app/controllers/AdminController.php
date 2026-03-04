@@ -54,8 +54,8 @@ class AdminController
             exit;
         }
 
-        $codes_values = $this->codes->getAllValues($this->connection);
-        $dates_values = $this->dates->getAllValues($this->connection);
+        $code_values = $this->codes->getAllValues($this->connection);
+        $date_values = $this->dates->getAllValues($this->connection);
         require_once __DIR__ . '/../views/dashboard.php';
     }
 }
