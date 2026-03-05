@@ -27,6 +27,40 @@ body {
     font-size: 2rem;
 }
 
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.tab-btn {
+    background: #121212;
+    border: 1px solid #2b2b2b;
+    color: #aaa;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.show-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
 .table-section {
     margin-bottom: 2.5rem;
     overflow-x: auto;

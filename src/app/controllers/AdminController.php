@@ -22,7 +22,7 @@ class AdminController
         $this->dates = new Dates();
         $this->admin_service = new AdminService($this->connection);
     }
-    public function index()
+    public function index(): void
     {
         if (!isset($_SESSION['rate'])) {
             $_SESSION['rate'] = 0;
@@ -50,7 +50,7 @@ class AdminController
         require_once __DIR__ . '/../views/login.php';
     }
 
-    public function dashboard()
+    public function dashboard(): void
     {
         if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
             header('Location: login');
@@ -61,6 +61,9 @@ class AdminController
             $js_warning = $this->admin_service->delete();
             if ($js_warning == null) {
                 $js_warning = $this->admin_service->insert();
+                if ($js_warning == null) {
+                    $js_warning = $this->admin_service->edit();
+                }
             }
         }
 

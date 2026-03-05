@@ -1,3 +1,60 @@
+// tabs and dashboard visualization (show more/less)
+document.addEventListener("DOMContentLoaded", () => {
+
+    const tabs = document.querySelectorAll(".tab-btn")
+    const contents = document.querySelectorAll(".tab-content")
+
+    tabs.forEach(btn => {
+        btn.onclick = () => {
+            tabs.forEach(t => t.classList.remove("active"))
+            contents.forEach(c => c.classList.remove("active"))
+
+            btn.classList.add("active")
+            document.getElementById(btn.dataset.tab).classList.add("active")
+        }
+    })
+
+    function limitTable(sectionId, limit = 6) {
+        const section = document.getElementById(sectionId)
+        const rows = section.querySelectorAll("tbody tr")
+
+        if (rows.length <= limit) return
+
+        rows.forEach((row, index) => {
+            if (index >= limit) row.style.display = "none"
+        })
+
+        const container = document.createElement("div")
+        container.className = "show-more-container"
+
+        const button = document.createElement("button")
+        button.className = "btn-add"
+        button.textContent = "Show more"
+
+        let expanded = false
+
+        button.onclick = () => {
+            expanded = !expanded
+
+            rows.forEach((row, index) => {
+                if (index >= limit) {
+                    row.style.display = expanded ? "table-row" : "none"
+                }
+            })
+
+            button.textContent = expanded ? "Show less" : "Show more"
+        }
+
+        container.appendChild(button)
+        section.querySelector("table").after(container)
+    }
+
+    limitTable("codes", 6)
+    limitTable("dates", 6)
+
+})
+
+// for the edit section on dashboard
 document.addEventListener("DOMContentLoaded", () => {
     const editButtons = document.querySelectorAll("button[name='edit_id_codes'], button[name='edit_id_dates']")
 
@@ -80,9 +137,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     hidden.value = input.value
                     form.appendChild(hidden)
                 })
+                const action = document.createElement("input")
+                action.type = "hidden"
+                action.name = button.name
+                action.value = button.value
+                form.appendChild(action)
                 document.body.removeChild(overlay)
                 form.submit()
             }
         }
     })
 })
+
+

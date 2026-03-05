@@ -17,8 +17,11 @@
                 Dashboard
             </h1>
         </div>
-
-        <section class="table-section">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="codes">Codes</button>
+            <button class="tab-btn" data-tab="dates">Dates</button>
+        </div>
+        <section class="table-section tab-content active" id="codes">
             <div class="section-title">table codes</div>
 
             <table class="data-table">
@@ -78,7 +81,7 @@
             </div>
         </section>
 
-        <section class="table-section">
+        <section class="table-section tab-content" id="dates">
             <div class="section-title">table dates</div>
 
             <table class="data-table">
