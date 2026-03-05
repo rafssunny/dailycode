@@ -7,7 +7,7 @@ class DailyCodeService
     public function __construct(private object $dates, private object $codes, private PDO $connection, private object $languages, private object $options, private object $statistics)
     {
     }
-    public function OrganizeViewValues(string $input, array $available_dates)
+    public function OrganizeViewValues(string $input, array $available_dates): array
     {
         // get values related with the selected date
         $values = $this->codes->getValuesOfSelectedDate($input, $available_dates, $this->dates, $this->connection);

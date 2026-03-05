@@ -35,7 +35,7 @@ class Statistics
         $connection->query('UPDATE statistics SET hits = hits + 1');
         $_SESSION['today_hit'] = true;
     }
-    public function resetStatistics(PDO $connection)
+    public function resetStatistics(PDO $connection): void
     {
         session_destroy();
         $query = $connection->query('UPDATE statistics set attempts = 0, hits = 0;') ?? (object) ['attempts' => 0];

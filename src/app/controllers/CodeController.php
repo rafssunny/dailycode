@@ -32,7 +32,7 @@ class CodeController
         $this->statistics = new Statistics();
         $this->codes->checkTodayDateIsInDates($this->connection, $this->dates, $this->statistics);
     }
-    public function index()
+    public function index(): void
     {
         if (!isset($_SESSION['today_attempts'])) {
             $_SESSION['today_attempts'] = 0;
