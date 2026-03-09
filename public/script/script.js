@@ -65,6 +65,7 @@ function initializeDailyAccess() {
 
     if (last_access_date != today_date) {
         localStorage.setItem('lastAccessDate', today_date)
+        attempts_today = 0
         localStorage.setItem('attempts_today', attempts_today)
         localStorage.setItem('firstTodayHit', 'true')
         localStorage.setItem('warning_display', 'none')
