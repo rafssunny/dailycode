@@ -29,17 +29,20 @@
                     <tr>
                         <th>id</th>
                         <th>language</th>
+                        <th>slug</th>
                         <th>code</th>
                         <th>output</th>
                         <th>date</th>
                         <th>ACTIONS</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <?php foreach ($code_values as $value): ?>
                         <tr>
                             <td><?= $value['id'] ?></td>
                             <td><?= $value['language'] ?></td>
+                            <td><?= $value['slug'] ?></td>
                             <td><span class="code-badge"><?= htmlspecialchars($value['code']) ?></span></td>
                             <td><?= $value['output'] ?></td>
                             <td><?= $value['date'] ?></td>
@@ -61,15 +64,23 @@
                         <label>LANGUAGE</label>
                         <input name="language" class="dark-input" type="text" placeholder="ex: Python" required>
                     </div>
+
+                    <div class="input-group">
+                        <label>SLUG</label>
+                        <input name="slug" class="dark-input" type="text" placeholder="ex: python" required>
+                    </div>
+
                     <div class="input-group">
                         <label>CODE</label>
                         <textarea name="code" class="dark-input" rows="1" cols="30" placeholder="code..."
                             required></textarea>
                     </div>
+
                     <div class="input-group">
                         <label>OUTPUT</label>
                         <input name="output" class="dark-input" type="text" placeholder="output..." required>
                     </div>
+
                     <div class="input-group">
                         <label>DATE</label>
                         <input name="date_codes" class="dark-input" type="text" placeholder="yyyy-mm-dd" required>

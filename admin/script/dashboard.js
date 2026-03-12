@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })
 
-// for the edit section on dashboard
+// edit modal
 document.addEventListener("DOMContentLoaded", () => {
     const editButtons = document.querySelectorAll("button[name='edit_id_codes'], button[name='edit_id_dates']")
 
@@ -92,18 +92,23 @@ document.addEventListener("DOMContentLoaded", () => {
             let fields = ""
 
             if (isCode) {
+
                 const language = cells[1].innerText
-                const code = cells[2].innerText
-                const output = cells[3].innerText
-                const date = cells[4].innerText
+                const slug = cells[2].innerText
+                const code = cells[3].innerText
+                const output = cells[4].innerText
+                const date = cells[5].innerText
 
                 fields = `
                     <input class="dark-input" name="language" value="${language}" required>
+                    <input class="dark-input" name="slug" value="${slug}" required>
                     <textarea class="dark-input" name="code" required>${code}</textarea>
                     <input class="dark-input" name="output" value="${output}" required>
                     <input class="dark-input" name="date_codes" value="${date}" required>
                 `
+
             } else {
+
                 const date = cells[1].innerText
                 const codeId = cells[2].innerText
 
@@ -129,7 +134,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             modal.querySelector(".confirm-btn").onclick = () => {
+
                 const inputs = modal.querySelectorAll("input, textarea")
+
                 inputs.forEach(input => {
                     const hidden = document.createElement("input")
                     hidden.type = "hidden"
@@ -137,16 +144,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     hidden.value = input.value
                     form.appendChild(hidden)
                 })
+
                 const action = document.createElement("input")
                 action.type = "hidden"
                 action.name = button.name
                 action.value = button.value
                 form.appendChild(action)
+
                 document.body.removeChild(overlay)
                 form.submit()
             }
         }
     })
 })
-
-
